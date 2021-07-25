@@ -2,7 +2,7 @@
 import React, {useState} from 'react' // eslint-disable-line
 import {jsx, Container} from 'theme-ui'
 import {Link, useStaticQuery, graphql} from 'gatsby'
-import Img from 'gatsby-image'
+import {GatsbyImage} from 'gatsby-plugin-image'
 
 import ModalVideo from 'react-modal-video'
 import 'react-modal-video/css/modal-video.min.css'
@@ -12,15 +12,15 @@ function HomeVideo () {
 
   const {videoBgImage} = useStaticQuery(
     graphql`
-    query {
-      videoBgImage: file(relativePath: { eq: "jimmy-vercellino-welcome-video-thumbnail.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 736) {
-            ...GatsbyImageSharpFluid_withWebp
+    
+      {
+        videoBgImage: file(relativePath: { eq: "jimmy-vercellino-welcome-video-thumbnail.jpg" }) {
+          childImageSharp {
+            gatsbyImageData(width: 768, layout: FIXED)
           }
         }
       }
-    }
+    
     `
   )
 
@@ -59,7 +59,7 @@ function HomeVideo () {
             width: ['full', null, null, '1/2']
           }}>
             <div onClick={() => setvideoToggler(true)} sx={{cursor: 'pointer'}}>
-              <Img fluid={videoBgImage.childImageSharp.fluid} alt='Jimmy' className='w-100' style={{height: '100%'}} />
+              <GatsbyImage image={videoBgImage.childImageSharp.gatsbyImageData} alt="Jimmy Vercellino" className='w-100' style={{height: '100%'}} />
             </div>
           </div>
 
