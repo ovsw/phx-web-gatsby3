@@ -13,18 +13,8 @@ import {FaChevronRight} from 'react-icons/fa'
 
 // gatsby plugin image imports
 import {GatsbyImage} from 'gatsby-plugin-image'
-import {getGatsbyImageData} from 'gatsby-source-sanity'
-import clientConfig from '../../client-config'
 
 function BlogPostPreview (props) {
-  // const thumbSize = props.largeThumbs ? {width: 700, height: 400} : {width: 370, height: 252}
-  // console.log('xxx', props.mainImage.asset.gatsbyImageData)
-  // const gatsbyImageData = getGatsbyImageData(
-  //   props.mainImage.asset.gatsbyImageData,
-  //   {maxWidth: 675},
-  //   clientConfig.sanity
-  // )
-
 
   return (
     <div sx={{
