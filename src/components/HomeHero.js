@@ -2,39 +2,45 @@
 import React from 'react' // eslint-disable-line
 import {jsx, Container} from 'theme-ui'
 import {Link, useStaticQuery, graphql} from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
+
+import { getImage } from 'gatsby-plugin-image'
+import { BgImage } from 'gbimage-bridge'
 
 const HomeHero = () => {
   const {mobile, desktop} = useStaticQuery(graphql`
     query GET_HERO_BG_IMAGES {
       mobile: file(relativePath: { eq: "hero-image-bg-mobile.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 600, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
+          gatsbyImageData(
+            width: 600
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
         }
       }
       desktop: file(relativePath: { eq: "hero-image1.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 1920, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
+          gatsbyImageData(
+            width: 1920
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
         }
       }
     }
   `)
 
   const sources = [
-    mobile.childImageSharp.fluid,
+    getImage(mobile),
     {
-      ...desktop.childImageSharp.fluid,
+      ...getImage(desktop),
       media: `(min-width: 640px)`
     }
   ]
 
   return (
     <>
-      <BackgroundImage fluid={sources} Tag='section' sx={{
+      <BgImage image={sources} Tag='section' sx={{
         paddingTop: ['11rem'],
         minHeight: [null, '80vh', '100vh'],
         display: 'flex',
@@ -97,7 +103,7 @@ const HomeHero = () => {
             </a>
           </div>
         </Container>
-      </BackgroundImage>
+      </BgImage>
     </>
   )
 }
