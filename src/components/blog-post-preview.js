@@ -5,25 +5,23 @@ import {jsx} from 'theme-ui'
 import {format,parseISO} from 'date-fns'
 import {Link} from 'gatsby'
 import {toPlainText, truncateToWords} from '../lib/helpers' // cn, buildImageObj, getBlogUrl,
-// import {imageUrlFor} from '../lib/image-url'
-import BackgroundImage from 'gatsby-background-image'
-// import PortableText from './portableText'
+
+import { getImage } from 'gatsby-plugin-image'
+import { BgImage } from 'gbimage-bridge'
 
 import {FaChevronRight} from 'react-icons/fa'
 
-// gatsby plugin image imports
-import {GatsbyImage} from 'gatsby-plugin-image'
-
 function BlogPostPreview (props) {
-
+  // const thumbSize = props.largeThumbs ? {width: 700, height: 400} : {width: 370, height: 252}
+  console.log('xxx', props.mainImage.asset)
+  const postCoverImage = getImage(props.mainImage.asset)
+  
   return (
-    <div sx={{
+    <BgImage image={postCoverImage} className='newsItem' sx={{
       position: 'relative',
       display: 'flex',
       overflow: 'hidden'
     }} >
-
-      <GatsbyImage image={props.mainImage.asset.gatsbyImageData}/>
 
       {/* <img
         src={imageUrlFor(buildImageObj(props.mainImage))
@@ -100,7 +98,7 @@ function BlogPostPreview (props) {
       </div>
       {/* end content wrapper */}
 
-    </div>
+    </BgImage>
   )
 }
 
