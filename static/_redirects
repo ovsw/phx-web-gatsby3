@@ -1,0 +1,19 @@
+# redirect netlify sitename to your sitename for SEO purposes,
+# to avoid duplicate content.  Do this for http and https
+https://phxhomeloan.netlify.app/* https://phxhomeloan.com/:splat 301!
+http://phxhomeloan.netlify.app/* https://phxhomeloan.com/:splat 301!
+
+# also redirect http to https for your custom domain.
+# Note that netlify automatically redirects to your custom domain from the bare domain (or vice versa), so you only need one rule here.
+http://www.phxhomeloan.com/* https://phxhomeloan.com/:splat 301!
+https://www.phxhomeloan.com/* https://phxhomeloan.com/:splat 301!
+http://phxhomeloan.com/* https://phxhomeloan.com/:splat 301!
+
+
+/2018-increase-az-mortgage-loan-limits/      /new-mortgage-limits-for-2020/     301
+/refinancing/           /refinance-home-loan/           301
+/contact-me/           /contact/           301
+
+
+
+
