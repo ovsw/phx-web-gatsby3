@@ -10,11 +10,6 @@ import {FaGlobeAmericas, FaPhone, FaEnvelope} from 'react-icons/fa'
 
 const Footer = () => {
 
-  // const backgroundFluidImageStack = [
-  //   footerBg.childImageSharp.fluid,
-  //   `linear-gradient(rgba(3, 27, 56, 0.8), rgba(3, 27, 56, 0.8))`
-  // ].reverse()
-
   return (
     <footer >
       <div sx={{background: 'linear-gradient(to right, #ebb745 0%, #dd8729 100%)', color: 'white', fontSize: 0, p: {my: 0}}}>
@@ -109,14 +104,7 @@ const Footer = () => {
           </div>
         </Container>
       </div>
-      {/* <BackgroundImage
-        Tag='div'
-        className='footer-inner'
-        fluid={backgroundFluidImageStack}
-        backgroundColor={`#163963`}
-        >
 
-      </BackgroundImage> */}
       <div sx={{bg: 'black', color: 'white', textAlign: 'center', py: 1, fontSize: 0}}>
         <Container>
           <p>Copyright &copy; 2019-{new Date().getFullYear()}
