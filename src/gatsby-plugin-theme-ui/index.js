@@ -143,7 +143,7 @@ export default {
       'm': 3
     },
     'img': {
-      mt: 4
+      pb: 4
     },
     '.contentImage': {
       ml: 'auto',

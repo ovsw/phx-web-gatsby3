@@ -12,7 +12,7 @@ function GenericPage (props) {
   const {_rawBody} = props
   return (
     <>
-      <div sx={{variant: 'styles', 'h2:first-child': {mt: 0}}} role='main'>
+      <div sx={{variant: 'styles', 'h2:first-of-type': {mt: 0}}} role='main'>
         {_rawBody && <PortableText blocks={_rawBody} />}
       </div>
 
