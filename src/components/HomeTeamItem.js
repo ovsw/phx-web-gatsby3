@@ -3,15 +3,17 @@ import React from 'react' // eslint-disable-line
 import {jsx} from 'theme-ui'
 import PortableText from './portableText'
 
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import {FaPhone, FaEnvelope} from 'react-icons/fa'
 
 const HomeTestimonialItem = ({name, role, email, phone, nmls, mainImage, _rawBio}) => {
+  const staffMemberImage = getImage(mainImage.asset)
+  
   return (
     <div sx={itemStyles}>
 
-      <Img fluid={mainImage.asset.fluid} alt={name} loading='lazy' sx={{
+      <GatsbyImage image={staffMemberImage} alt={name} loading='lazy' sx={{
         width: ['full', null, null, '1/2']
         // height: '400px'
       }} />

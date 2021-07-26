@@ -13,7 +13,6 @@ import {FaChevronRight} from 'react-icons/fa'
 
 function BlogPostPreview (props) {
   // const thumbSize = props.largeThumbs ? {width: 700, height: 400} : {width: 370, height: 252}
-  console.log('xxx', props.mainImage.asset)
   const postCoverImage = getImage(props.mainImage.asset)
   
   return (

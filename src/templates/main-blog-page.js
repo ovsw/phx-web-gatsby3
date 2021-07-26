@@ -82,7 +82,10 @@ export const query = graphql`
           mainImage {
             alt
             asset {
-              gatsbyImageData(width: 800, fit: FILLMAX, placeholder: BLURRED)
+              gatsbyImageData(
+                width: 800, 
+                fit: FILLMAX,
+                placeholder: BLURRED)
             }
           }
           title

@@ -146,8 +146,11 @@ export default {
       mt: 4
     },
     '.contentImage': {
-      m: '0',
-      p: '0'
+      ml: 'auto',
+      mr: 'auto',
+      pt: '0',
+      width: "100%",
+      objectFit: 'cover'
     },
     'figcaption': {
       textAlign: 'center',

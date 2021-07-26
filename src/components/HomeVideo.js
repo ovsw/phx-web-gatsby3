@@ -16,7 +16,7 @@ function HomeVideo () {
       {
         videoBgImage: file(relativePath: { eq: "jimmy-vercellino-welcome-video-thumbnail.jpg" }) {
           childImageSharp {
-            gatsbyImageData(width: 768, layout: FIXED)
+            gatsbyImageData(width: 984)
           }
         }
       }

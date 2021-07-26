@@ -12,8 +12,8 @@ const HomeHero = () => {
       mobile: file(relativePath: { eq: "hero-image-bg-mobile.jpg" }) {
         childImageSharp {
           gatsbyImageData(
-            width: 600
-            placeholder: BLURRED
+            width: 600,
+            placeholder: BLURRED,
             formats: [AUTO, WEBP, AVIF]
           )
         }
@@ -21,8 +21,8 @@ const HomeHero = () => {
       desktop: file(relativePath: { eq: "hero-image1.jpg" }) {
         childImageSharp {
           gatsbyImageData(
-            width: 1920
-            placeholder: BLURRED
+            layout: FULL_WIDTH,
+            placeholder: BLURRED,
             formats: [AUTO, WEBP, AVIF]
           )
         }
@@ -40,7 +40,7 @@ const HomeHero = () => {
 
   return (
     <>
-      <BgImage image={sources} Tag='section' sx={{
+      <BgImage image={sources} loading="eager" Tag='section' sx={{
         paddingTop: ['11rem'],
         minHeight: [null, '80vh', '100vh'],
         display: 'flex',
