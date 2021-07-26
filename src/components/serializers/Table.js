@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default ({node}) => {
-  console.log(node)
+  // console.log(node)
   return (
     <table>
       <tbody>
