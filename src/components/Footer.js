@@ -2,31 +2,13 @@
 import React from 'react' // eslint-disable-line
 import {jsx, Container} from 'theme-ui'
 import {Link, useStaticQuery, graphql} from 'gatsby'
-// import BackgroundImage from 'gatsby-background-image'
+import { StaticImage } from "gatsby-plugin-image";
 
 import SocialLinks from './social-links'
 
 import {FaGlobeAmericas, FaPhone, FaEnvelope} from 'react-icons/fa'
 
 const Footer = () => {
-  const {footerLogoImage} = useStaticQuery(graphql`
-  query{
-    footerLogoImage: file(relativePath: { eq: "goldwater-vercellino-team-logo.png" }) {
-      childImageSharp {
-        original{
-          width
-          height
-          src
-        }
-        fixed(width: 320) {
-          ...GatsbyImageSharpFixed_noBase64
-          srcSet
-          src
-        }
-      }
-    }
-  }
-`)
 
   // const backgroundFluidImageStack = [
   //   footerBg.childImageSharp.fluid,
@@ -49,7 +31,7 @@ const Footer = () => {
         }}>
           <div className='footerColumn' sx={{width: ['full', null, null, '4/12']}}>
             <p sx={{variant: 'text.superHeading', '::before': {borderTopColor: 'white',width: '20px'}, color: 'white'}}>About Us</p>
-            <img src={footerLogoImage.childImageSharp.fixed.src} alt='Goldwater Bank - Vercellino Team logo' sx={{
+            <StaticImage src="../images/goldwater-vercellino-team-logo.png" width={320} placeholder="none" alt='Goldwater Bank - Vercellino Team logo' sx={{
               maxWidth: 'full', mt: 3
             }} />
             <h4 sx={footerHeaderStyles}>Goldwater Bank N.A.<br /> Mortgage Division</h4>
