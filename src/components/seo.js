@@ -46,6 +46,7 @@ function SEO({ seoTitle, description, lang = 'en', slug = '', image }) {
 
         <meta name="image" content={seoImage} />
         <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content={`${siteUrl}/${slug}${slug ? "/" : ""}`} />
         <meta property="og:site_name" content="Phoenix Mortgage Lenders Jimmy V NMLS# 184169" />
         <meta property="og:title" content="Phoenix Mortgage Lenders Jimmy V NMLS# 184169" />
         <meta property="og:type" content="website" />
@@ -53,7 +54,7 @@ function SEO({ seoTitle, description, lang = 'en', slug = '', image }) {
         <meta property="og:image" content={seoImage} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content="@phxhomeloan" />
-        <link rel="canonical" href={`${siteUrl}/${slug}${slug ? '/': ''}`} />
+        <link rel="canonical" href={`${siteUrl}/${slug}${slug ? "/" : ""}`} />
 
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
       </Helmet>
