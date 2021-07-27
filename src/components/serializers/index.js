@@ -61,6 +61,9 @@ const serializers = {
           return <a href={href}>{children}</a>
         }
       }
+    },
+    internalLink: ({ mark, children }) => {
+      return <Link to={`/${mark.reference.slug.current}/`} >{children}</Link>;
     }
   }
 }
