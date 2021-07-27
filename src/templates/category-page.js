@@ -39,6 +39,7 @@ const CategoryPageTemplate = (props) => {
         <SEO
           seoTitle={page.seoTitle || page.title || "Untitled"}
           description={page.seoDescription || ""}
+          slug={categorySlug}
         />
       )}
 

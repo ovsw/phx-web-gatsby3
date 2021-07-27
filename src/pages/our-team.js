@@ -17,7 +17,7 @@ const TeamPage = props => {
 
   return (
     <Layout>
-      <SEO seoTitle="Our Team" description="The truly dedicated, hightly motivated Vercellino Team" slug="our-team"/>
+      <SEO seoTitle="Our Team" description="The truly dedicated, hightly motivated Vercellino Team" slug="/our-team/"/>
       <InnerPageHeader />
       <HomeTeam />      
     </Layout>

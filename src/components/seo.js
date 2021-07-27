@@ -42,22 +42,23 @@ function SEO({ seoTitle, description, lang = 'en', slug = '', image }) {
       <Helmet>
         <html lang="en_US" />
         <title>{seoTitleComputed}</title>
-        <meta name='description' content={seoDescriptionComputed} />
+        <meta name="description" content={seoDescriptionComputed} />
 
-        <meta name='image' content={seoImage} />
-        <meta property='og:locale' content="en_US" />
-        <meta property='og:site_name' content="Phoenix Mortgage Lenders Jimmy V NMLS# 184169" />
-        <meta property='og:title' content="Phoenix Mortgage Lenders Jimmy V NMLS# 184169" />
-        <meta property='og:type' content='website' />
-        <meta property='og:description' content={seoDescriptionComputed} />
-        <meta property='og:image' content={seoImage} />
-        <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:creator' content="@phxhomeloan" />
+        <meta name="image" content={seoImage} />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="Phoenix Mortgage Lenders Jimmy V NMLS# 184169" />
+        <meta property="og:title" content="Phoenix Mortgage Lenders Jimmy V NMLS# 184169" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content={seoDescriptionComputed} />
+        <meta property="og:image" content={seoImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@phxhomeloan" />
+        <link rel="canonical" href={`${siteUrl}/${slug}${slug ? '/': ''}`} />
 
-        <script type='application/ld+json'>{JSON.stringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
       </Helmet>
     </>
-  )
+  );
 }
 
 SEO.defaultProps = {
