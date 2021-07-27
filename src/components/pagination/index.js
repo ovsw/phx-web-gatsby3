@@ -15,7 +15,12 @@ const Pagination = ({ currentPage, numPages, rootSlug }) => {
   return (
     <ul sx={paginationStyles}>
       {!isFirst && (
-        <Link to={`${rootSlug}/${prevPage}/`} rel="prev" title="Previous Page">
+        
+        <Link
+          to={`/${rootSlug}/${prevPage}${prevPage === "" ? "" : "/"}`}
+          rel="prev"
+          title="Previous Page"
+        >
           <FaChevronLeft sx={{ position: "relative", top: "2px" }} />
         </Link>
       )}
@@ -23,7 +28,7 @@ const Pagination = ({ currentPage, numPages, rootSlug }) => {
       {Array.from({ length: numPages }, (_, i) => (
         <Link
           key={`pagination-number${i + 1}`}
-          to={`${rootSlug}/${i === 0 ? "" : i + 1}/`}
+          to={`/${rootSlug}/${i === 0 ? "" : i + 1}${i === 0 ? "" : "/"}`}
           activeClassName="activePage"
         >
           {i + 1}
@@ -31,7 +36,7 @@ const Pagination = ({ currentPage, numPages, rootSlug }) => {
       ))}
 
       {!isLast && (
-        <Link to={`${rootSlug}/${nextPage}/`} rel="next" title="Next Page">
+        <Link to={`/${rootSlug}/${nextPage}/`} rel="next" title="Next Page">
           <FaChevronRight sx={{ position: "relative", top: "2px" }} />
         </Link>
       )}
