@@ -218,6 +218,7 @@ module.exports = {
           head: true,
           // Setting this parameter is also optional
           respectDNT: false,
+          send_page_view: true,
           // Avoids sending pageview hits from custom paths
           // exclude: ["/preview/**", "/do-not-track/me/too/"],
         },
