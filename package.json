@@ -12,8 +12,8 @@
     "gatsby": "^3.10.1",
     "gatsby-background-image": "^1.5.3",
     "gatsby-image": "^3.10.0",
-    "gatsby-plugin-google-analytics": "^3.10.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-google-gtag": "^3.10.0",
     "gatsby-plugin-image": "^1.10.1",
     "gatsby-plugin-manifest": "^3.10.0",
     "gatsby-plugin-netlify": "^3.10.0",
@@ -54,6 +54,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "generate": "gatsby build && gatsby serve",
     "develop": "gatsby develop",
     "clean-cache": "gatsby clean",
     "dev": "npm run clean-cache && gatsby develop",
