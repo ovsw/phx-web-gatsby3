@@ -136,6 +136,14 @@ module.exports = {
     ],
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-WZCLNW8",
+        includeInDevelopment: false,
+        enableWebVitalsTracking: true,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
