@@ -187,7 +187,45 @@ module.exports = {
         overlayDrafts: !isProd,
       },
     },
-    "gatsby-plugin-sitemap",
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        // exclude: ['/admin', '/confirmed'],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+
+            allSitePage {
+              edges {
+                node {
+                  path
+                  context {
+                    seoNoIndex
+                  }
+                }
+              }
+            }
+          }
+        `,
+        serialize: ({site, allSitePage}) => {
+          return allSitePage.edges
+            .filter(({node}) => (
+              node.context.seoNoIndex !== true
+            ))
+            .map(({node}) => {
+              return {
+                url: site.siteMetadata.siteUrl + node.path,
+                changefreq: 'daily',
+                priority: 0.7
+              }
+            })
+        },
+      }
+    },
     // {
     //   resolve: "gatsby-plugin-google-analytics",
     //   options: {

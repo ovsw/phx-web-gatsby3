@@ -15,6 +15,7 @@ async function createBlogPages(graphql, actions, reporter) {
         edges {
           node {
             id
+            seoNoIndex
             publishedAt
             slug {
               current
@@ -51,7 +52,7 @@ async function createBlogPages(graphql, actions, reporter) {
   postEdges
     .filter((edge) => !isFuture(edge.node.publishedAt))
     .forEach((edge, index) => {
-      const { id, slug = {} } = edge.node; // publishedAt
+      const { id, slug = {}, seoNoIndex } = edge.node; // publishedAt
       // const dateSegment = format(publishedAt, 'YYYY/MM')
       // const path = `/blog/${dateSegment}/${slug.current}/`
       const path = `/${slug.current}/`;
@@ -61,7 +62,7 @@ async function createBlogPages(graphql, actions, reporter) {
       createPage({
         path,
         component: require.resolve("./src/templates/blog-post.js"),
-        context: { id },
+        context: { id, seoNoIndex },
       });
     });
 
@@ -146,6 +147,7 @@ async function createGenericPages(graphql, actions, reporter) {
         edges {
           node {
             id
+            seoNoIndex
             slug {
               current
             }
@@ -160,7 +162,7 @@ async function createGenericPages(graphql, actions, reporter) {
   const pageEdges = (result.data.allSanityPage || {}).edges || [];
 
   pageEdges.forEach((edge, index) => {
-    const { id, slug = {} } = edge.node;
+    const { id, slug = {}, seoNoIndex } = edge.node;
     const path = `/${slug.current}/`;
 
     reporter.info(`Creating generic page: ${path}`);
@@ -168,7 +170,7 @@ async function createGenericPages(graphql, actions, reporter) {
     createPage({
       path,
       component: require.resolve("./src/templates/generic-page.js"),
-      context: { id },
+      context: { id, seoNoIndex },
     });
   });
 }
