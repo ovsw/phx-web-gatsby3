@@ -21,7 +21,7 @@ import {useSiteMetadata} from '../hooks/use-site-metadata'
 import {useSiteSettings} from '../hooks/use-site-settings'
 
 
-function SEO({ seoTitle, description, lang = 'en', slug = '', image }) {
+function SEO({ seoTitle, description, lang = 'en', slug = '', image, noIndex = false }) {
   // grab default values from gatsby config
   const siteMetadata = useSiteMetadata()
   const {defaultImage, siteUrl} = siteMetadata
@@ -43,6 +43,8 @@ function SEO({ seoTitle, description, lang = 'en', slug = '', image }) {
         <html lang="en_US" />
         <title>{seoTitleComputed}</title>
         <meta name="description" content={seoDescriptionComputed} />
+
+        {noIndex && <meta name='robots' content='noindex' />}
 
         <meta name="image" content={seoImage} />
         <meta property="og:locale" content="en_US" />

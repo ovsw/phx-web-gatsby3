@@ -17,7 +17,7 @@ const GenericPageTemplate = props => {
   return (
     <Layout>
       {errors && <SEO seoTitle='GraphQL Error' />}
-      {page && <SEO seoTitle={page.seoTitle || page.title } description={page.seoDescription || ''} slug={page.slug.current}/>}
+      {page && <SEO seoTitle={page.seoTitle || page.title } description={page.seoDescription || ''} slug={page.slug.current} noIndex={page.seoNoIndex != null}/>}
 
       {errors && (
         <>
@@ -46,6 +46,7 @@ export const query = graphql`
       id
       seoTitle
       seoDescription
+      seoNoIndex
       title
       slug {
         current

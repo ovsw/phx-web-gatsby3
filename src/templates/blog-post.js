@@ -15,7 +15,7 @@ const BlogPostTemplate = props => {
   return (
     <Layout>
       {errors && <SEO seoTitle='GraphQL Error' />}
-      {post && <SEO seoTitle={post.seoTitle || post.title || 'Untitled'} description={post.seoDescription || toPlainText(post._rawExcerpt)} image={post.mainImage} slug={post.slug.current} />}
+      {post && <SEO seoTitle={post.seoTitle || post.title || 'Untitled'} description={post.seoDescription || toPlainText(post._rawExcerpt)} image={post.mainImage} slug={post.slug.current} noIndex={post.seoNoIndex != null} />}
 
       {errors && (
         <>
@@ -42,6 +42,7 @@ export const query = graphql`
       id
       seoTitle
       seoDescription
+      seoNoIndex
       publishedAt
       categories {
         _id
