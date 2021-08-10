@@ -39,11 +39,11 @@ const BlogPage = (props) => {
           <GraphQLErrorList errors={errors} />
         </>
       )}
-      <SEO seoTitle={"Blog | Phoenix Mortgage Lender Jimmy V - Goldwater Mortgage"} />
+      <SEO seoTitle={"Blog | Home Loan Specialists | Phoenix Mortgage Lender"} />
       {posts && (
         <TwoColumnsRightSidebar
           path={location.pathname}
-          header={<BlogPageHeader title="Blog" />}
+          header={<BlogPageHeader title="Blog"  description="Check out our recent blog posts on Home Loans, Mortgage, and Finance. Stay up-to-date with the latest news and tips from the mortgage industry."/>}
           mainContent={
             <BlogPostPreviewList
               title="Blog Posts"
