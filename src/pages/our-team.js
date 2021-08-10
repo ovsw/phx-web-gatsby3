@@ -17,7 +17,7 @@ const TeamPage = props => {
 
   return (
     <Layout>
-      <SEO seoTitle="Our Team" description="The truly dedicated, hightly motivated Vercellino Team" slug="our-team"/>
+      <SEO seoTitle="Vercellino Team | Phoenix Mortgage Lender" description="The truly dedicated Vercellino Team is passionate about helping homebuyers take advantage of Home Loan benefits in Phoenix, AZ. Contact our team now." slug="our-team"/>
       <InnerPageHeader />
       <HomeTeam />      
     </Layout>
