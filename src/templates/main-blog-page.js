@@ -43,7 +43,7 @@ const BlogPage = (props) => {
       {posts && (
         <TwoColumnsRightSidebar
           path={location.pathname}
-          header={<BlogPageHeader title="Blog" />}
+          header={<BlogPageHeader title="Blog" isH1={true}/>}
           mainContent={
             <BlogPostPreviewList
               title="Blog Posts"
