@@ -178,4 +178,37 @@ async function createGenericPages(graphql, actions, reporter) {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   await createGenericPages(graphql, actions, reporter);
   await createBlogPages(graphql, actions, reporter);
+
+  const { createRedirect } = actions;
+
+  const redirectsQuery = await graphql(`
+    {
+      sanityRedirects(_id: { eq: "redirects" }) {
+        list {
+          toPath
+          fromPath
+          isTemporary
+        }
+      }
+    }
+  `);
+
+  if (redirectsQuery.errors) {
+    throw redirectsQuery.errors;
+  }
+
+  // process redirects from Sanity
+  const redirectsList = redirectsQuery.data.sanityRedirects.list || [];
+
+  redirectsList.forEach(({ fromPath, toPath, isTemporary }) => {
+    reporter.info(`Creating ${isTemporary ? "302" : "301"} redirect: ${fromPath} -> ${toPath}`);
+
+    const isPermanent = !isTemporary;
+
+    createRedirect({
+      fromPath,
+      toPath,
+      isPermanent
+    });
+  });
 };
