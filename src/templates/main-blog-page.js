@@ -39,7 +39,13 @@ const BlogPage = (props) => {
           <GraphQLErrorList errors={errors} />
         </>
       )}
-      <SEO seoTitle={"Blog | Home Loan Specialists | Phoenix Mortgage Lender"} description="Check out our recent blog posts on Home Loans, Mortgage, and Finance. Stay up-to-date with the latest news and tips from the mortgage industry." />
+      <SEO 
+        seoTitle={"Blog | Home Loan Specialists | Phoenix Mortgage Lender"} 
+        description="Check out our recent blog posts on Home Loans, Mortgage, and Finance. Stay up-to-date with the latest news and tips from the mortgage industry." 
+
+        slug="blog"
+        
+        />
       {posts && (
         <TwoColumnsRightSidebar
           path={location.pathname}
