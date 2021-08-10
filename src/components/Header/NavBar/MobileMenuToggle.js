@@ -39,7 +39,7 @@ const MobileMenuToggle = () => {
         }
 
       }}>
-        <title>Toggle Menu</title>
+        {/* <title>Toggle Menu</title> */}
         <g>
           <line className='bar' x1='13' y1='16.5' x2='37' y2='16.5' />
           <line className='bar' x1='13' y1='24.5' x2='37' y2='24.5' />
