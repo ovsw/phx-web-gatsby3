@@ -10,9 +10,7 @@ function BlogPostPreviewList ({nodes, currentPage, numPages, rootSlug}) {
 
   return (
     <>
-      {/* <GatsbySeo
-        canonical={`https://phxhomeloan.com/${rootSlug}/${currentPage != 1 ? currentPage+"/" : ''}`}
-      /> */}
+      
       {/* <h2 className={styles.headline}>{props.title}</h2> */}
       {showPagination && <Pagination currentPage={currentPage} numPages={numPages} rootSlug={rootSlug} />}
       <div sx={{
