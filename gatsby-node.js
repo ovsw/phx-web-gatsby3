@@ -175,10 +175,7 @@ async function createGenericPages(graphql, actions, reporter) {
   });
 }
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
-  await createGenericPages(graphql, actions, reporter);
-  await createBlogPages(graphql, actions, reporter);
-
+async function createSanityRedirects(graphql, actions, reporter){
   const { createRedirect } = actions;
 
   const redirectsQuery = await graphql(`
@@ -193,12 +190,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `);
 
-  if (redirectsQuery.errors) {
-    throw redirectsQuery.errors;
-  }
+  if (redirectsQuery.errors) throw redirectsQuery.errors;
 
-  // process redirects from Sanity
-  const redirectsList = redirectsQuery.data.sanityRedirects.list || [];
+  // reporter.info(JSON.stringify(redirectsQuery))
+
+  //process redirects from Sanity
+  const redirectsList = (redirectsQuery.data.sanityRedirects && redirectsQuery.data.sanityRedirects.list) || [];
+  if (redirectsList.length == 0) {
+    reporter.warn("*****************************")
+    reporter.warn("NO REDIRECTS FOUND IN SANITY!")
+    reporter.warn("*****************************")
+  }
 
   redirectsList.forEach(({ fromPath, toPath, isTemporary }) => {
     reporter.info(`Creating ${isTemporary ? "302" : "301"} redirect: ${fromPath} -> ${toPath}`);
@@ -211,4 +213,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       isPermanent
     });
   });
+
+}
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  await createGenericPages(graphql, actions, reporter);
+  await createBlogPages(graphql, actions, reporter);
+  await createSanityRedirects(graphql, actions, reporter)  
 };
