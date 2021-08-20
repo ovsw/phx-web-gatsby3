@@ -4,6 +4,7 @@ export const appContext = React.createContext()
 
 const AppContextProvider = props => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
+  const [isMobileSubMenuOpen, setIsMobileSubMenuOpen] = useState(false)
 
   return (
     <appContext.Provider value={{

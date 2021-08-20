@@ -1,153 +1,166 @@
 /** @jsx jsx */
-import React, {useContext} from 'react' // eslint-disable-line
-import {jsx} from 'theme-ui'
+import React, { useContext } from "react"; // eslint-disable-line
+import { jsx } from "theme-ui";
 
-import {appContext} from '../../../context'
+import { appContext } from "../../../context";
 
-import {useSiteMetadata} from '../../../hooks/use-site-metadata'
-import {Link} from 'gatsby'
+import { useSiteMetadata } from "../../../hooks/use-site-metadata";
+import { Link } from "gatsby";
 
-import MainLogo from './MainLogo'
-import MobileMenuToggle from './MobileMenuToggle'
-import MenuItemWSubMenu from './NavItemWithSubMenu'
+import MainLogo from "./MainLogo";
+import MobileMenuToggle from "./MobileMenuToggle";
+import MenuItemWSubMenu from "./NavItemWithSubMenu";
 
 const NavBar = () => {
-  const {siteNav} = useSiteMetadata()
-  const {isMobileNavOpen, openMobileNav, closeMobileNav} = useContext(appContext)
+  const { siteNav } = useSiteMetadata();
+  const { isMobileNavOpen, openMobileNav, closeMobileNav } = useContext(appContext);
 
   return (
     <nav sx={navBarStyles(isMobileNavOpen)}>
       <MainLogo />
-      <div className='mainMenuWrapper'>
-        <ul className='mainMenu'>
-          {siteNav.map(navItem => (
+      <div className="mainMenuWrapper">
+        <ul className="mainMenu">
+          {siteNav.map((navItem, i) => (
             <li key={navItem.title}>
-              {(navItem.children.length === 0) &&
-              <Link to={navItem.slug}>{navItem.title}</Link>
-              }
-              {(navItem.children.length > 0) &&
-              <MenuItemWSubMenu {...navItem} />
-              }
+              {navItem.children.length === 0 && (
+                <Link to={navItem.slug} onClick={closeMobileNav}>
+                  {navItem.title}
+                </Link>
+              )}
+              {navItem.children.length > 0 && (
+                <MenuItemWSubMenu {...navItem} index={i} closeMobileNav={closeMobileNav} />
+              )}
             </li>
           ))}
         </ul>
       </div>
       <MobileMenuToggle />
     </nav>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
 
 const navBarStyles = (isMobileNavOpen) => {
   const styles = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    position: 'relative',
-    bg: 'white',
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    position: "relative",
+    bg: "white",
     py: 0,
     px: 3,
-    '.topBarWrapper': {
-      width: 'full'
+    ".topBarWrapper": {
+      width: "full",
     },
-    '.mainMenuWrapper': {
-      position: ['absolute', null, null, 'static'],
-      display: [null, null, null, 'flex'],
+    ".mainMenuWrapper": {
+      position: ["absolute", null, null, "static"],
+      pb: [3, null, 0, 0, 0],
+      display: [null, null, null, "flex"],
       right: 0,
-      top: ['5.1rem', '5.5rem'],
+      top: ["5.1rem", "5.5rem"],
       // transition animation
-      transition: 'all 200ms ease',
-      maxHeight: [isMobileNavOpen ? 1000 : 0, null, null, 1000],
-      overflow: ['hidden', null, null, 'visible'],
-      // display: isMobileNavOpen ? 'block' : 'none'
-      bg: ['white', null, null, 'transparent'],
-      boxShadow: ['0 0 5px rgba(0,0,0,0.1)', null, null, 'none']
+      transition: "all 200ms ease",
+      // maxHeight: [isMobileNavOpen ? 1000 : 0, null, null, 1000],
+      // overflow: ["hidden", null, null, "visible"],
+      maxHeight: "90vh",
+      overflowY: ["scroll", null, "visible"],
+      display: [isMobileNavOpen ? "block" : "none", null, null, "flex"],
+      bg: ["white", null, null, "transparent"],
+      boxShadow: ["0 0 5px rgba(0,0,0,0.1)", null, null, "none"],
     },
-    '.mainMenu': {
-      display: ['block', null, null, 'flex'],
-      variant: 'lists.reset',
-      p: [3, null, null, 0]
-
+    ".mainMenu": {
+      display: ["block", null, null, "flex"],
+      variant: "lists.reset",
+      p: [3, null, null, 0],
     },
-    '.mainMenu li': {
-      position: 'relative',
-      display: [null, null, 'flex'],
-      borderBottom: ['1px solid rgba(24,24,24,0.1)', null, 'none'],
+    ".mainMenu li": {
+      position: "relative",
+      display: [null, null, "flex"],
+      borderTop: ["1px solid rgba(24,24,24,0.1)", null, "none"],
       px: 1,
-      '@media screen and (min-width: 1024px)': {
-        ':hover': {
-          '.subMenuWrapperUl': {
-            display: 'block'
-          }
-        }
-      }
+      "@media screen and (min-width: 1024px)": {
+        ":hover": {
+          ".subMenuWrapperUl": {
+            display: "block",
+          },
+        },
+      },
     },
     a: {
-      color: 'text',
-      textDecoration: 'none',
+      display: "inline-block",
+      color: "text",
+      textDecoration: "none",
       fontSize: 1,
-      fontWeight: 'bold',
+      fontWeight: "bold",
       px: 2,
-      my: 'auto'
+      py: 2,
+      my: "auto",
     },
-    '.mainMenu .subMenuWrapperUl': {
-      display: 'none',
-      position: [null, null, null, 'absolute'],
-      top: '3.5rem',
+    ".mainMenu .subMenuWrapperUl": {
+      // display: 'none',
+      pl: "1em!important",
+      "@media screen and (min-width: 1024px)": {
+        display: "none",
+      },
+      position: [null, null, null, "absolute"],
+      top: "3.5rem",
       left: 0,
-      variant: 'lists.reset',
-      minWidth: '15rem',
-      bg: 'white',
-      boxShadow: [null, null, null, '0 0 30px 0 rgba(0,0,0,.12)'],
+      variant: "lists.reset",
+      minWidth: "15rem",
+      bg: "white",
+      boxShadow: [null, null, null, "0 0 30px 0 rgba(0,0,0,.12)"],
       py: [null, null, null, 2],
       // tirangle
-      '::before': {
+      "::before": {
         content: '""',
-        display: 'block',
-        borderLeft: '10px solid transparent',
-        borderRight: '10px solid transparent',
-        borderBottom: '11px solid white',
-        zIndex: '3',
-        position: 'absolute',
-        left: '30px',
-        top: '-21px',
+        display: "none",
+        "@media screen and (min-width: 1024px)": {
+          display: "block",
+        },
+        borderLeft: "10px solid transparent",
+        borderRight: "10px solid transparent",
+        borderBottom: "11px solid white",
+        zIndex: "3",
+        position: "absolute",
+        left: "30px",
+        top: "-21px",
         // marginLeft: '-33px',
         // marginTop: '-9px',
         // opacity: '0',
-        transition: '200ms ease all',
-        pointerEvents: 'none',
-        transform: 'translateY(10px)',
-        transitionDelay: '0'
+        transition: "200ms ease all",
+        pointerEvents: "none",
+        transform: "translateY(10px)",
+        transitionDelay: "0",
       },
       li: {
-        px: 0
+        px: 0,
       },
       a: {
         fontSize: 0,
-        fontWeight: 'normal',
-        px: [null, null, null, '1.42857em'],
-        py: [null, null, null, '2'],
-        display: 'inline-block',
-        position: 'relative',
-        '::before': {
-          display: 'block',
+        fontWeight: "normal",
+        px: [null, null, null, "1.42857em"],
+        py: [null, null, null, "2"],
+        display: "inline-block",
+        position: "relative",
+        "::before": {
+          display: "block",
           content: '""',
-          width: '0',
-          height: '2px',
-          bg: 'primary',
-          top: '50%',
-          marginTop: '-1px',
-          left: '0',
-          transition: '200ms ease all',
-          position: 'absolute'
+          width: "0",
+          height: "2px",
+          bg: "primary",
+          top: "50%",
+          marginTop: "-1px",
+          left: "0",
+          transition: "200ms ease all",
+          position: "absolute",
         },
-        ':hover:before': {
-          width: '10px'
-        }
-      }
-    }
-  }
+        ":hover:before": {
+          width: "10px",
+        },
+      },
+    },
+  };
 
-  return styles
-}
+  return styles;
+};
