@@ -40,7 +40,7 @@ function SEO({ seoTitle, description, lang = 'en', slug = '', image, noIndex = f
   return (
     <>
       <Helmet>
-        <html lang="en_US" />
+        <html lang={lang} />
         <title>{seoTitleComputed}</title>
         <meta name="description" content={seoDescriptionComputed} />
 
