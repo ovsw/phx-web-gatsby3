@@ -26,7 +26,7 @@ const HomeTestimonialItem = ({name, role, email, phone, nmls, mainImage, _rawBio
           '::before': {
             width: '2rem'
           }
-        }}>NMLS #{nmls}</span>
+        }}>{nmls && 'NMLS #'}{nmls}</span>
         <h3 sx={{
           fontSize: 4,
           letterSpacing: '-.03em',
