@@ -19,7 +19,7 @@ const sharedHeadingStyles = {
   'fontWeight': 'heading',
   'lineHeight': 'heading',
   fontFamily: 'Sarabun, sans-serif',
-  'm': 0,
+  'mt': 6,
   'mb': 3,
   color: 'text'
 }
@@ -113,14 +113,14 @@ export default {
     'h2': {
       ...sharedHeadingStyles,
       'fontSize': [4, 5, 6, 6],
-      'mt': 5,
-      'mb': 4
+      mt: '1.5em !important',
+      mb: '1em'
     },
     'h3': {
       ...sharedHeadingStyles,
       'fontSize': [3, 4, 5, 5],
       fontWeight: 'bold',
-      'mt': 4
+      mt: '1.5em !important'
     },
     'h4': {
       ...sharedHeadingStyles,

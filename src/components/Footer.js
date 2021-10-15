@@ -31,7 +31,7 @@ const Footer = () => {
             }} />
             <h4 sx={footerHeaderStyles}>Goldwater Bank N.A.<br /> Mortgage Division</h4>
             <p>NMLS #452955</p>
-            <p>5050 North 40th Street, <br />Phoenix AZ 85018</p>
+            <p>3602 E Campbell Ave, <br />Phoenix AZ 85018</p>
 
           </div>
 

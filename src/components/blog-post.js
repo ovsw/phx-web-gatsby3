@@ -13,8 +13,8 @@ import SocialLinks from './social-links'
 function BlogPost (props) {
   const {_rawBody, authors, categories, title, mainImage, publishedAt} = props
   return (
-    <>
-      <h1 sx={{mt: 0}}>{title}</h1>
+    <div sx={{variant: 'styles', 'h2:first-of-type': {mt: 0}}} role='main'>
+      <h1 sx={{}}>{title}</h1>
       <div className='in-blog-metatop' sx={{color: 'textMuted'}}>
         <span> Published on: {format(publishedAt, 'MMMM Do, YYYY')} | Written by Jimmy Vercellino</span>
 
@@ -28,7 +28,10 @@ function BlogPost (props) {
           .url()}
         alt={mainImage.alt}
       /> */}
-      {_rawBody && <PortableText blocks={_rawBody} />}
+
+      
+        {_rawBody && <PortableText blocks={_rawBody} />}
+      
 
       <div className='in-blog-metabottom mt-30'>
         {/* <span><a href='#'><i className='zmdi zmdi-favorite-outline' /> Like : 08</a> / <a href='#'><i className='zmdi zmdi-comment-outline' />Comment</a></span> */}
@@ -68,7 +71,7 @@ function BlogPost (props) {
       </div> */}
       {/* <!-- blog-details-wrapper -->   */}
 
-    </>
+    </div>
   )
 }
 

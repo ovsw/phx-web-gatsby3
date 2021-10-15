@@ -21,7 +21,7 @@ export const localBusinessSchema = {
   priceRange: "$$$",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "5050 North 40th Street",
+    streetAddress: "3602 E Campbell Ave",
     addressLocality: "Phoenix",
     addressRegion: "AZ",
     postalCode: "85018",
@@ -63,7 +63,7 @@ export const professionalServiceSchema = {
     "You select a Home and discuss the purchase with the seller or selling agent. Sign a purchase contract conditioned on approval of your VA home loan. Select a lender: You select a lender and present them with your Certificate of Eligibility and complete a loan application Credit Report & Appraisal: The lender will develop all credit and income information. They will also request VA to assign a licensed appraiser to determine the reasonable value for the property. A Certificate of Reasonable Value will be issued. Note: You may be required to pay for the credit report and appraisal unless the seller agrees to pay. Approval: The lender will let you know the decision on the loan. You should be approved if the established value and your credit and income are acceptable....",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "5050 North 40th Street, Ste 260,",
+    streetAddress: "3602 E Campbell Ave",
     addressLocality: "Phoenix",
     addressRegion: "AZ",
     postalCode: "85018",
