@@ -9,10 +9,10 @@ const MainLogo = () => {
   return (
     <Link to="/" title="Phoenix Home Loans" sx={{ display: "inline-block", lineHeight: 0 }}>
       <StaticImage
-        src="../../../images/goldwater-vercellino-team-logo.png"
-        width={320}
+        src="../../../images/fwt-logo.png"
+        width={400}
         placeholder="none"
-        alt="Goldwater Bank - Vercellino Team logo"
+        alt="First Western Trust - Vercellino Team logo"
         sx={{
           maxWidth: ["190px", "250px"],
         }}

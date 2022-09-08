@@ -26,10 +26,10 @@ const Footer = () => {
         }}>
           <div className='footerColumn' sx={{width: ['full', null, null, '4/12']}}>
             <p sx={{variant: 'text.superHeading', '::before': {borderTopColor: 'white',width: '20px'}, color: 'white'}}>About Us</p>
-            <StaticImage src="../images/goldwater-vercellino-team-logo.png" width={320} placeholder="none" alt='Goldwater Bank - Vercellino Team logo' sx={{
+            <StaticImage src="../images/fwt-vercellino-team-logo.png" width={320} placeholder="none" alt='First Western Trust - Vercellino Team logo' sx={{
               maxWidth: 'full', mt: 3
             }} />
-            <h4 sx={footerHeaderStyles}>Goldwater Bank N.A.<br /> Mortgage Division</h4>
+            <h4 sx={footerHeaderStyles}>First Western Trust<br /> Mortgage Division</h4>
             <p>NMLS #452955</p>
             <p>3602 E Campbell Ave, <br />Phoenix AZ 85018</p>
 
@@ -67,7 +67,7 @@ const Footer = () => {
             <p>NMLS# 184169</p>
             <ul sx={{variant: 'lists.reset', mt: 4, li: {mt: 2}, svg: {color: 'black'}}}>
               <li><a href='tel:480-800-8387'><FaPhone /> 480-800-8387</a></li>
-              <li><a href='mailto:JimmyV@goldwaterbank.com'><FaEnvelope /> JimmyV@goldwaterbank.com</a></li>
+              <li><a href='mailto:jimmy.vercellino@myfw.com'><FaEnvelope /> jimmy.vercellino@myfw.com</a></li>
               <li><a href='https://phxhomeloan.com/'><FaGlobeAmericas /> phxhomeloan.com</a></li>
             </ul>
             <ul sx={{
@@ -109,7 +109,7 @@ const Footer = () => {
         <Container>
           <p>Copyright &copy; 2019-{new Date().getFullYear()}
           Jimmy Vercellino NMLS #184169
-          {/* Goldwater Bank LLC */}
+          {/* First Western Trust LLC */}
           . All rights reserved. | Website by <a href='https://ovswebsites.com' target='_blank' sx={{color: '#ff5071'}}>OVS Websites</a>.</p>
         </Container>
 

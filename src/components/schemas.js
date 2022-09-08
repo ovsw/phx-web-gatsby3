@@ -11,9 +11,9 @@ export const localBusinessSchema = {
   "@type": "LocalBusiness",
   name: "Phoenix Home Loans",
   image: [
-    "https://phxhomeloan.netlify.app/images/1x1/goldwater-bank-vercellino-team-logo.png",
-    "https://phxhomeloan.netlify.app/images/4x3/goldwater-bank-vercellino-team-logo.png",
-    "https://phxhomeloan.netlify.app/images/16x9/goldwater-bank-vercellino-team-logo.png",
+    "https://phxhomeloan.netlify.app/images/1x1/fwt-vercellino-team-logo.png",
+    "https://phxhomeloan.netlify.app/images/4x3/fwt-vercellino-team-logo.png",
+    "https://phxhomeloan.netlify.app/images/16x9/fwt-vercellino-team-logo.png",
   ],
   "@id": "https://phxhomeloan.com",
   url: "https://phxhomeloan.com",

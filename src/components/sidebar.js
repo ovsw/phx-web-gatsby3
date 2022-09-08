@@ -34,7 +34,7 @@ const Sidebar = () => {
           </h4>
           <p>Fast and easy online application.</p>
           <a
-            href="https://goldwaterbank.mymortgage-online.com/?loanapp&siteid=4884527613&lar=wstar_jvercellin&workFlowId=29714"
+            href="https://myfw.mymortgage-online.com/JimmyVercellino.html"
             target="_blank"
             rel="noopener noreferrer"
             sx={{
