@@ -67,6 +67,7 @@ const Footer = () => {
             <p>NMLS# 184169</p>
             <ul sx={{variant: 'lists.reset', mt: 4, li: {mt: 2}, svg: {color: 'black'}}}>
               <li><a href='tel:480-800-8387'><FaPhone /> 480-800-8387</a></li>
+              {/* <li><a href='tel:18775051281'><FaPhone /> 1-877-505-1281</a></li> */}
               <li><a href='mailto:jimmy.vercellino@myfw.com'><FaEnvelope /> jimmy.vercellino@myfw.com</a></li>
               <li><a href='https://phxhomeloan.com/'><FaGlobeAmericas /> phxhomeloan.com</a></li>
             </ul>
@@ -95,8 +96,11 @@ const Footer = () => {
            
           }}>
             <p sx={{variant: 'text.superHeading', '::before': {borderTopColor: 'white'}, color: 'white'}}>Important</p>
-            <h4 sx={footerHeaderStyles}>Important Information about Procedures for Opening a New Account.</h4>
+            {/* <h4 sx={footerHeaderStyles}>Important Information about Procedures for Opening a New Account.</h4>
             <p sx={{color: '#fff6dd'}}> To help the government fight the funding of terrorism and money laundering activities, Federal law requires all financial institutions to obtain, verify, and record information that identifies each person who opens an account (e.g., establishes a formal relationship by means of a loan application). What this means for you: When you open an account, we will ask for your name, address, date of birth, and other information that will allow us to identify you. We may also ask to see your driver's license or other identifying documents.</p>
+          */}
+          <p sx={{color: '#fff6dd'}}>This is not an offer to enter into an agreement. Not all customers will qualify. Information, rates and programs are subject to change without notice. All products are subject to credit and property approval. Other restrictions and limitations may apply. Equal Housing Lender.</p>
+
             <p sx={{pt: 3}}>
               <a href='http://www.nmlsconsumeraccess.org/' title='NML Consumer Access' rel='noopener noreferrer' style={{marginRight: '1rem'}}><img src='/images/logo/ico2.png' alt='NML Consumer Access Logo' /></a>
               <img src='/images/logo/equal-housing-opportunity-logo.png' alt='Equal Housing Opportunity Logo' title='Equal Housing Opportunity Logo' />
@@ -108,9 +112,9 @@ const Footer = () => {
       <div sx={{bg: 'black', color: 'white', textAlign: 'center', py: 1, fontSize: 0}}>
         <Container>
           <p>Copyright &copy; 2019-{new Date().getFullYear()}
-          Jimmy Vercellino NMLS #184169
+          First Western Trust, Member FDIC. NMLS ID 477166. Call:<a href="tel:18775051281">1-877-505-1281</a>. All rights reserved.
           {/* First Western Trust LLC */}
-          . All rights reserved. | Website by <a href='https://ovswebsites.com' target='_blank' sx={{color: '#ff5071'}}>OVS Websites</a>.</p>
+          | Website by <a href='https://ovswebsites.com' target='_blank' sx={{color: '#ff5071'}}>OVS Websites</a>.</p>
         </Container>
 
       </div>
