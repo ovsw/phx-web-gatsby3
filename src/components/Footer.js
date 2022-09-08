@@ -29,8 +29,9 @@ const Footer = () => {
             <StaticImage src="../images/fwt-logo.png" width={320} placeholder="none" alt='First Western Trust - Vercellino Team logo' sx={{
               maxWidth: 'full', mt: 3
             }} />
-            <h4 sx={footerHeaderStyles}>First Western Trust<br /> Mortgage Division</h4>
-            <p>NMLS #452955</p>
+            <h4 sx={footerHeaderStyles}>First Western Trust</h4>
+            <p>NMLS ID 477166</p>
+            <p>Call: <a href="tel:18775051281">1-877-505-1281</a></p>
             <p>3602 E Campbell Ave, <br />Phoenix AZ 85018</p>
 
           </div>
