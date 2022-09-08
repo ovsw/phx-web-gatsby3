@@ -98,8 +98,8 @@ const HomeHero = () => {
             <Link to='/contact/' sx={{variant: 'buttons.simple', mr: 2}}>
               <span>Contact</span>
             </Link>
-            <a href='https://myfw.mymortgage-online.com/JimmyVercellino.html' target="_blank" rel='noopener noreferrer' sx={{variant: 'buttons.simpleWhite'}}>
-              <span>Apply</span>
+            <a href='https://connect.phxhomeloan.com/' target="_blank" rel='noopener noreferrer' sx={{variant: 'buttons.simpleWhite'}}>
+              <span>Get Started</span>
             </a>
           </div>
         </Container>

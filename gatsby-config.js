@@ -23,7 +23,7 @@ module.exports = {
       //   children: []
       // },
       {
-        title: "Apply",
+        title: "Get Started",
         slug: "/apply/",
         children: [],
       },

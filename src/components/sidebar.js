@@ -34,14 +34,14 @@ const Sidebar = () => {
           </h4>
           <p>Fast and easy online application.</p>
           <a
-            href="https://myfw.mymortgage-online.com/JimmyVercellino.html"
+            href="https://connect.phxhomeloan.com/"
             target="_blank"
             rel="noopener noreferrer"
             sx={{
               variant: "buttons.simpleAccent",
             }}
           >
-            Apply Now
+            Get Started
           </a>
         </div>
 
