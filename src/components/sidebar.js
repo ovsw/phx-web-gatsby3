@@ -79,7 +79,7 @@ const Sidebar = () => {
           </Link>
         </div>
 
-        <Link
+        {/* <Link
           className="award"
           to="/jimmy-vercellino-awarded-top-1-percent-mortgage-originators-in-us-2019/"
         >
@@ -87,7 +87,7 @@ const Sidebar = () => {
             image={awardImage}
             alt="Award for Jimmy Vercellino as top 1% Mortgage Originators in America 2019 from Morgage Executive Magazine"
           />
-        </Link>
+        </Link> */}
 
         <div className="social">
           <ul
