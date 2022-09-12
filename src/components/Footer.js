@@ -31,7 +31,7 @@ const Footer = () => {
             }} />
             <h4 sx={footerHeaderStyles}>First Western Trust</h4>
             <p>NMLS ID 477166</p>
-            <p>Call: <a href="tel:18775051281">1-877-505-1281</a></p>
+            <p>Call: <a href="tel:6029085849">602-908-5849</a></p>
             <p>3602 E Campbell Ave, <br />Phoenix AZ 85018</p>
 
           </div>
