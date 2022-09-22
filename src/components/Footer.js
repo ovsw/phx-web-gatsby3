@@ -26,7 +26,7 @@ const Footer = () => {
         }}>
           <div className='footerColumn' sx={{width: ['full', null, null, '4/12']}}>
             <p sx={{variant: 'text.superHeading', '::before': {borderTopColor: 'white',width: '20px'}, color: 'white'}}>About Us</p>
-            <StaticImage src="../images/fwt-logo.png" width={320} placeholder="none" alt='First Western Trust - Vercellino Team logo' sx={{
+            <StaticImage src="../images/fwt-vercellino-team-logo.png" width={320} placeholder="none" alt='First Western Trust - Vercellino Team logo' sx={{
               maxWidth: 'full', mt: 3
             }} />
             <h4 sx={footerHeaderStyles}>First Western Trust</h4>

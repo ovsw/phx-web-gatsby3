@@ -9,10 +9,10 @@ const MainLogo = () => {
   return (
     <Link to="/" title="Phoenix Home Loans" sx={{ display: "inline-block", lineHeight: 0 }}>
       <StaticImage
-        src="../../../images/fwt-vercellino-team-logo.png"
+        src="../../../images/fwt-logo.png"
         width={400}
         placeholder="none"
-        alt="First Western Trust - Vercellino Team logo"
+        alt="First Western Trus logo"
         sx={{
           maxWidth: ["190px", "250px"],
         }}
