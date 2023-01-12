@@ -18,7 +18,7 @@ const HomeHero = () => {
           )
         }
       }
-      desktop: file(relativePath: { eq: "hero-image1.jpg" }) {
+      desktop: file(relativePath: { eq: "hero-image-2023.jpg" }) {
         childImageSharp {
           gatsbyImageData(
             layout: FULL_WIDTH,
