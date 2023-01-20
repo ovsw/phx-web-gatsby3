@@ -12,7 +12,10 @@ const Footer = () => {
 
   return (
     <footer >
-      <div sx={{background: 'linear-gradient(to right, #ebb745 0%, #dd8729 100%)', color: 'white', fontSize: 0, p: {my: 0}}}>
+      <div sx={{
+        backgroundColor: 'primary',
+        //background: 'linear-gradient(to right, #ebb745 0%, #dd8729 100%)',
+         color: 'white', fontSize: 0, p: {my: 0}}}>
         <Container sx={{
           display: 'flex',
           flexWrap: ['wrap', null, null, 'nowrap'],
@@ -113,7 +116,7 @@ const Footer = () => {
       <div sx={{bg: 'black', color: 'white', textAlign: 'center', py: 1, fontSize: 0}}>
         <Container>
           <p>Copyright &copy; 2019-{new Date().getFullYear()}
-          First Western Trust, Member FDIC. NMLS ID 477166. Call:<a href="tel:18775051281" sx={{color: 'orange'}}>1-877-505-1281</a>. All rights reserved.
+          First Western Trust, Member FDIC. NMLS ID 477166. Call:<a href="tel:18775051281" sx={{color: 'primary'}}>1-877-505-1281</a>. All rights reserved.&nbsp;
           {/* First Western Trust LLC */}
           | Website by <a href='https://ovswebsites.com' target='_blank' sx={{color: '#ff5071'}}>OVS Websites</a>.</p>
         </Container>
