@@ -66,7 +66,7 @@ const IndexPage = props => {
 
       <HomeVideo />
 
-      {/* <Testimonials /> */}
+      <Testimonials />
 
       {/* <Container>
 
