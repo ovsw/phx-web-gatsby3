@@ -87,7 +87,7 @@ export default {
         ...sharedButtonStyles,
         display: 'inline-block',
         'backgroundColor': 'black',
-        color: 'primary',
+        color: 'white',
         'border': 'none',
         mb: 3,
         'fontWeight': 'bold',
@@ -97,6 +97,10 @@ export default {
           boxShadow: '0 -3px 0 0 rgba(24,24,24,.15) inset, 0 3px 10px rgba(0,0,0,0.3)',
           transform: 'translateY(-3px) skew(-8deg)',
           color: 'white'
+        },
+        "span": {
+          display: 'inline-flex',
+        gap: "0.5rem"
         }
       }
     },
