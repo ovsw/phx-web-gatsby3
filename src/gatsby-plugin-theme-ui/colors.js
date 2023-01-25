@@ -1,7 +1,12 @@
 const colors = {
   'colors': {
     // layout
-    'primary': '#e49f37',
+    // first western:
+    // - blue: #3e5e6f
+    // - khaki: #9aa184 
+    // - gray: #7a7d81
+    // 'primaryold:': '#e49f37',
+    'primary': '#9aa184',
     'secondary': '#592203',
     'accent': '#ff6644',
     'background': 'white',
@@ -13,7 +18,7 @@ const colors = {
     'textBody': '#585151',
     'textMuted': '#9da2a0', // #8b8a90
     'white': '#fff',
-    'black': '#26272a',
+    'black': '#3e5e6f',
     'transparent': 'transparent',
     'gray': [
       null,

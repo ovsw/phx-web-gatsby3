@@ -18,7 +18,7 @@ const HomeHero = () => {
           )
         }
       }
-      desktop: file(relativePath: { eq: "hero-image-2023.jpg" }) {
+      desktop: file(relativePath: { eq: "hero-image-2023-2.jpg" }) {
         childImageSharp {
           gatsbyImageData(
             layout: FULL_WIDTH,
@@ -51,16 +51,19 @@ const HomeHero = () => {
           textAlign: ['center', 'left']
         }}>
           <div className='textWrapper' sx={{
+            padding: '3rem',
+            backgroundColor: 'white',
+            borderRadius: '7px',
             maxWidth: ['full', '70%', null, '3/5', '3xl']
           }}>
             <h1 sx={{
               variant: 'text.superHeading',
-              color: 'white',
+              color: 'black',
               justifyContent: ['center', 'flex-start'],
               position: 'relative',
               mb: 2,
               '::before': {
-                borderTopColor: 'white',
+                borderTopColor: 'black',
                 marginTop: '-1px',
                 position: ['absolute', 'static'],
                 bottom: '-.5rem',
@@ -72,6 +75,7 @@ const HomeHero = () => {
             </h1>
             <h2 sx={{
               fontFamily: 'heading',
+              color: 'black',
               fontWeight: 'heading',
               lineHeight: 'none',
               fontSize: [3, '3.3rem', '3.4rem', '3.8rem'],
@@ -80,8 +84,8 @@ const HomeHero = () => {
               mb: [4, null,  5, 4]
             }}>
               <span sx={{
-                color: 'white',
-                textShadow: '0 2px 5px rgba(0,0,0,.5)',
+                color: 'primary',
+                //textShadow: '0 2px 5px rgba(0,0,0,.5)',
                 display: 'block',
                 fontSize: [5, '3.1rem'],
                 mb: 2
@@ -98,7 +102,7 @@ const HomeHero = () => {
             <Link to='/contact/' sx={{variant: 'buttons.simple', mr: 2}}>
               <span>Contact</span>
             </Link>
-            <a href='https://connect.phxhomeloan.com/' target="_blank" rel='noopener noreferrer' sx={{variant: 'buttons.simpleWhite'}}>
+            <a href='https://connect.phxhomeloan.com/' target="_blank" rel='noopener noreferrer' sx={{variant: 'buttons.simpleAccent'}}>
               <span>Get Started</span>
             </a>
           </div>
