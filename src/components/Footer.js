@@ -72,7 +72,7 @@ const Footer = () => {
             <ul sx={{variant: 'lists.reset', mt: 4, li: {mt: 2}, svg: {color: 'black'}}}>
               <li><a href='tel:480-800-8387'><FaPhone /> 480-800-8387</a></li>
               {/* <li><a href='tel:18775051281'><FaPhone /> 1-877-505-1281</a></li> */}
-              <li><a href='mailto:jimmy.vercellino@goluminate.com'><FaEnvelope /> jimmy.vercellino@goluminate.com</a></li>
+              <li><a href='mailto:jimmy.vercellino.com'><FaEnvelope /> jimmy.vercellin@myfw.como</a></li>
               <li><a href='https://phxhomeloan.com/'><FaGlobeAmericas /> phxhomeloan.com</a></li>
             </ul>
             <ul sx={{
