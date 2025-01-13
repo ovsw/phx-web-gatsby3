@@ -72,7 +72,7 @@ const Footer = () => {
             <ul sx={{variant: 'lists.reset', mt: 4, li: {mt: 2}, svg: {color: 'black'}}}>
               <li><a href='tel:480-800-8387'><FaPhone /> 480-800-8387</a></li>
               {/* <li><a href='tel:18775051281'><FaPhone /> 1-877-505-1281</a></li> */}
-              <li><a href='mailto:jimmy.vercellino@myfw.com'><FaEnvelope /> jimmy.vercellino@myfw.com</a></li>
+              <li><a href='mailto:jimmy.vercellino@goluminate.com'><FaEnvelope /> jimmy.vercellino@goluminate.com</a></li>
               <li><a href='https://phxhomeloan.com/'><FaGlobeAmericas /> phxhomeloan.com</a></li>
             </ul>
             <ul sx={{
@@ -115,7 +115,7 @@ const Footer = () => {
 
       <div sx={{bg: 'black', color: 'white', textAlign: 'center', py: 1, fontSize: 0}}>
         <Container>
-          <p>Copyright &copy; 2019-{new Date().getFullYear()}
+          <p>Copyright &copy; 2019-{new Date().getFullYear()} &nbsp;
           Luminate Bank, Member FDIC. NMLS ID 477166. Call:<a href="tel:18775051281" sx={{color: 'primary'}}>1-877-505-1281</a>. All rights reserved.&nbsp;
           {/* Luminate Bank*/}
           | Website by <a href='https://ovswebsites.com' target='_blank' sx={{color: '#ff5071'}}>OVS Websites</a>.</p>
