@@ -29,10 +29,10 @@ const Footer = () => {
         }}>
           <div className='footerColumn' sx={{width: ['full', null, null, '4/12']}}>
             <p sx={{variant: 'text.superHeading', '::before': {borderTopColor: 'white',width: '20px'}, color: 'white'}}>About Us</p>
-            <StaticImage src="../images/fwt-vercellino-team-logo.png" width={320} placeholder="none" alt='First Western Trust - Vercellino Team logo' sx={{
+            <StaticImage src="../images/fwt-vercellino-team-logo.png" width={320} placeholder="none" alt='Luminate Bank - Vercellino Team logo' sx={{
               maxWidth: 'full', mt: 3
             }} />
-            <h4 sx={footerHeaderStyles}>First Western Trust</h4>
+            <h4 sx={footerHeaderStyles}>Luminate Bank</h4>
             <p>NMLS ID 477166</p>
             <p>Call: <a href="tel:6029085849">602-908-5849</a></p>
             <p>3602 E Campbell Ave, <br />Phoenix AZ 85018</p>
@@ -116,8 +116,8 @@ const Footer = () => {
       <div sx={{bg: 'black', color: 'white', textAlign: 'center', py: 1, fontSize: 0}}>
         <Container>
           <p>Copyright &copy; 2019-{new Date().getFullYear()}
-          First Western Trust, Member FDIC. NMLS ID 477166. Call:<a href="tel:18775051281" sx={{color: 'primary'}}>1-877-505-1281</a>. All rights reserved.&nbsp;
-          {/* First Western Trust LLC */}
+          Luminate Bank, Member FDIC. NMLS ID 477166. Call:<a href="tel:18775051281" sx={{color: 'primary'}}>1-877-505-1281</a>. All rights reserved.&nbsp;
+          {/* Luminate Bank*/}
           | Website by <a href='https://ovswebsites.com' target='_blank' sx={{color: '#ff5071'}}>OVS Websites</a>.</p>
         </Container>
 

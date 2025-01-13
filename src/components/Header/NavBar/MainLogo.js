@@ -12,7 +12,7 @@ const MainLogo = () => {
         src="../../../images/fwt-logo.png"
         width={400}
         placeholder="none"
-        alt="First Western Trus logo"
+        alt="Luminate Bank logo"
         sx={{
           maxWidth: ["190px", "250px"],
         }}

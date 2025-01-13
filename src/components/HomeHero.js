@@ -97,7 +97,7 @@ const HomeHero = () => {
               maxWidth: ['none', '70%', '75%', '82%'],
               mb: [4, null, 5, 4]
             }}>
-              Buying a house is an exciting adventure, and we want to help you navigate your mortgage loan options so you get the right type of home loan with the best terms. <br/> <br />I’m Jimmy Vercellino, an experienced mortgage originator with Phoenix lender First Western Trust Mortgage Division. My team and I work hard to provide a timely, efficient and excellent home loan process for you. We serve families nationwide.
+              Buying a house is an exciting adventure, and we want to help you navigate your mortgage loan options so you get the right type of home loan with the best terms. <br/> <br />I’m Jimmy Vercellino, an experienced mortgage originator with Phoenix lender Luminate Bank. My team and I work hard to provide a timely, efficient and excellent home loan process for you. We serve families nationwide.
             </p>
             <Link to='/contact/' sx={{variant: 'buttons.simple', mr: 2}}>
               <span>Contact</span>
