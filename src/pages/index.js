@@ -59,11 +59,6 @@ const IndexPage = props => {
 
       <Hero />
       <Services />
-      <CTASection buttonText='Try it Now' link='/mortgage-calculator/'>
-        <h2 sx={{fontSize: [4, null, null, 6], my: 0}}>Mortgage <span sx={{color: 'primary'}}> Calculator</span></h2>
-        <p sx={{mt: 1}}>find out what you can expect to pay for your home loan</p>
-      </CTASection>
-
       <HomeVideo />
 
       <Testimonials />

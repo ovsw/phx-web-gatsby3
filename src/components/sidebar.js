@@ -45,23 +45,6 @@ const Sidebar = () => {
           </a>
         </div>
 
-        <div className="accent">
-          <h4>
-            <span>Mortgage Calculator</span>
-          </h4>
-          <p>Find out what you can expect to pay for your home loan.</p>
-          <Link
-            to="/mortgage-calculator/"
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{
-              variant: "buttons.simpleAccent",
-            }}
-          >
-            Calculate Now
-          </Link>
-        </div>
-
         <div className="white">
           <h4>
             <span>What's My Home Worth?</span>

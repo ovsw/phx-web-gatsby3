@@ -30,15 +30,6 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
     Homebot('#homebot_homeowner', '03bb83cda45c729b233efed7893784d286d9d7ee1b085bd6')
   }
 
-  if(location.pathname === '/mortgage-calculator/') {
-    (function() {
-      var s = document.createElement("script");
-      s.type = "text/javascript";
-      s.async = true;
-      s.src="https://cdn.calculatestuff.com/resizer.js";
-      (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(s);
-    })()
-  }
 }
 
 export const onClientEntry = () => {
