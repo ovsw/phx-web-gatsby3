@@ -12,7 +12,7 @@ const MainLogo = () => {
         src="../../../images/new-logos/JimmyVercillino_LuminateBank_Stacked.png"
         width={300}
         placeholder="none"
-        alt="The Highly Motivated Vercellino Team - Luminate Bank"
+        alt="The Highly Motivated Vercellino Team, a division of Luminate Bank logo"
         imgStyle={{ objectFit: "contain" }}
         sx={{
           maxWidth: ["160px", "210px"],

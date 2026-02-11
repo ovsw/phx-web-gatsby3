@@ -27,12 +27,21 @@ const Footer = () => {
           '.footerColumn': {
             pb: [4, 4, 4, 0]          }
         }}>
-          <div className='footerColumn' sx={{width: ['full', null, null, '4/12']}}>
-            <p sx={{variant: 'text.superHeading', '::before': {borderTopColor: 'white',width: '20px'}, color: 'white'}}>About Us</p>
-            <StaticImage src="../images/fwt-vercellino-team-logo.png" width={320} placeholder="none" alt='Luminate Bank - Vercellino Team logo' sx={{
-              maxWidth: 'full', mt: 3
-            }} />
-            <h4 sx={footerHeaderStyles}>Luminate Bank</h4>
+          <div className='footerColumn' sx={{width: ['full', null, null, '4/12'], pt: 0}}>
+            <StaticImage
+              src="../images/new-logos/JimmyVercillino_LuminateBank_Stacked.png"
+              width={300}
+              placeholder="none"
+              alt="The Highly Motivated Vercellino Team, a division of Luminate Bank logo"
+              imgStyle={{objectFit: "contain"}}
+              sx={{
+                display: "inline-block",
+                lineHeight: 0,
+                maxWidth: ["160px", "210px"],
+                mt: 0,
+                mb: "1rem",
+              }}
+            />
             <p>NMLS ID 477166</p>
             <p>Call: <a href="tel:6029085849">602-908-5849</a></p>
             <p>3602 E Campbell Ave, <br />Phoenix AZ 85018</p>
