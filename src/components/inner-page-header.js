@@ -9,7 +9,7 @@ import { BgImage } from "gbimage-bridge";
 const InnerPageHeader = ({title}) => {
   const { headerBgImage } = useStaticQuery(graphql`
     query {
-      headerBgImage: file(relativePath: { eq: "inner-banner.jpg" }) {
+      headerBgImage: file(relativePath: { eq: "inner-banner.png" }) {
         childImageSharp {
           gatsbyImageData(width: 1400)
         }

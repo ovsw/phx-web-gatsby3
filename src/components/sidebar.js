@@ -136,7 +136,8 @@ const sideBarStyles = {
     bg: 'black',
     color: 'white',
     h4: {
-      color: 'primary'
+      color: 'primary',
+      span: { color: 'white' }
     }
   },
   '.accent': {
