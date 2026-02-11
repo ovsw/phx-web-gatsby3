@@ -164,7 +164,20 @@ module.exports = {
         background_color: `#FFFFFF`,
         theme_color: `#e49f37`,
         display: `minimal-ui`,
-        icon: `src/images/fwt-icon.png`, // This path is relative to the root of the site.
+        icons: [
+          {
+            src: `/web-app-manifest-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+            purpose: `any maskable`,
+          },
+          {
+            src: `/web-app-manifest-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+            purpose: `any maskable`,
+          },
+        ],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
