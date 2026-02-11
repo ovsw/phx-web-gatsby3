@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from 'react' // eslint-disable-line
 import {jsx} from 'theme-ui'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 
 const MainLogo = () => {
@@ -9,12 +9,13 @@ const MainLogo = () => {
   return (
     <Link to="/" title="Phoenix Home Loans" sx={{ display: "inline-block", lineHeight: 0 }}>
       <StaticImage
-        src="../../../images/luminate-bank-logo-horizontal-logo.png"
-        width={400}
+        src="../../../images/new-logos/JimmyVercillino_LuminateBank_Stacked.png"
+        width={300}
         placeholder="none"
-        alt="Luminate Bank logo"
+        alt="The Highly Motivated Vercellino Team - Luminate Bank"
+        imgStyle={{ objectFit: "contain" }}
         sx={{
-          maxWidth: ["190px", "250px"],
+          maxWidth: ["160px", "210px"],
         }}
       />
     </Link>

@@ -87,7 +87,7 @@ const navBarStyles = (isMobileNavOpen) => {
         },
       },
     },
-    a: {
+    ".mainMenuWrapper a": {
       display: "inline-block",
       color: "text",
       textDecoration: "none",
