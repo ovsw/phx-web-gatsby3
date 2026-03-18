@@ -1,39 +1,82 @@
 /** @jsx jsx */
-import React from "react"; // eslint-disable-line
-import { jsx, Container } from "theme-ui";
-import { Helmet } from "react-helmet";
-// import HomeTestimonialItem from './HomeTestimonialItem'
+import React, { useEffect, useRef } from "react"; // eslint-disable-line
+import { jsx } from "theme-ui";
+
+const EMBED_SOCIAL_IFRAME_SRC =
+  "https://embedsocial.com/api/pro_hashtag/4a142e12aa7c4865b23549a0fceb79927b1094c9";
+const EMBED_SOCIAL_RESIZER_SRC = "https://embedsocial.com/js/iframe.js";
 
 const HomeTestimonials = () => {
+  const iframeRef = useRef(null);
+
+  useEffect(() => {
+    const initIframeResize = () => {
+      if (
+        typeof window !== "undefined" &&
+        typeof window.iFrameResize === "function" &&
+        iframeRef.current
+      ) {
+        window.iFrameResize({}, iframeRef.current);
+      }
+    };
+
+    const existingScript = document.querySelector(
+      `script[src="${EMBED_SOCIAL_RESIZER_SRC}"]`
+    );
+
+    if (existingScript) {
+      if (typeof window.iFrameResize === "function") {
+        initIframeResize();
+      } else {
+        existingScript.addEventListener("load", initIframeResize, {
+          once: true,
+        });
+      }
+
+      return () => {
+        existingScript.removeEventListener("load", initIframeResize);
+      };
+    }
+
+    const script = document.createElement("script");
+    script.src = EMBED_SOCIAL_RESIZER_SRC;
+    script.async = true;
+    script.addEventListener("load", initIframeResize, { once: true });
+    document.body.appendChild(script);
+
+    return () => {
+      script.removeEventListener("load", initIframeResize);
+    };
+  }, []);
+
   return (
     <>
-      <Helmet>
-        <script src="https://embedsocial.com/embedscript/ri.js" />
-      </Helmet>
-      {/*{esScript}*/}
       <section
         sx={{
-          variant: "sections.hpSection",
           bg: "black",
-          pb: [4, null, null, 5],
+          overflow: "hidden",
         }}
       >
-        <Container>
-          <span sx={{ variant: "text.superHeading", color: "white" }}>Reviews from Our</span>
-          <h2 sx={{ variant: "text.mainHeading", mb: 4, color: "primary" }}>
-            Satisfied <span sx={{ color: "white" }}>Clients</span>
-          </h2>
-          <div className="embedsocial-reviews" data-ref="dbf6aa080360d368baaa5c359edfb1d06eab94c0">
-            {/* this iframe would normally be loaded by the embedsocial script. To add a trailing slash on the iframe source (by request from Sting) I've manually pasted it below */}
-            <iframe
-              src="https://embedsocial.com/api/reviews/widget/dbf6aa080360d368baaa5c359edfb1d06eab94c0/"
-              id="embedIFrame_dbf6aa080360d368baaa5c359edfb1d06eab94c082lo7c"
-              className="embedsocial-reviews-iframe"
-              scrolling="no"
-              style={{ width: "100%", height: "591px", border: "0px", overflow: "hidden" }}
-            ></iframe>
-          </div>
-        </Container>
+        <div
+          sx={{
+            width: "100%",
+          }}
+        >
+          <iframe
+            ref={iframeRef}
+            title="Google reviews"
+            src={EMBED_SOCIAL_IFRAME_SRC}
+            scrolling="no"
+            style={{
+              border: "0",
+              width: "100%",
+              height: "100%",
+              minHeight: "420px",
+              overflow: "hidden",
+              display: "block",
+            }}
+          />
+        </div>
       </section>
     </>
   );

@@ -69,3 +69,7 @@ yarn.lock
 
 # Secrets
 .env.development
+
+# node complile cache
+node-compile-cache/*
+v8-compile-cache-*/
