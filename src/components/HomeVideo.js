@@ -24,15 +24,13 @@ function getJimmyVideoSrc () {
 function HomeVideo ({isVideoOpen, onOpenVideo, onCloseVideo}) {
   const {videoBgImage} = useStaticQuery(
     graphql`
-    
       {
-        videoBgImage: file(relativePath: { eq: "jimmy-vercellino-welcome-video-thumbnail.jpg" }) {
+        videoBgImage: file(relativePath: { eq: "meet-jimmy-v-thumbnail-maxresdefault.jpg" }) {
           childImageSharp {
             gatsbyImageData(width: 984)
           }
         }
       }
-    
     `
   )
 
@@ -71,7 +69,7 @@ function HomeVideo ({isVideoOpen, onOpenVideo, onCloseVideo}) {
             width: ['full', null, null, '1/2']
           }}>
             <div onClick={onOpenVideo} sx={{cursor: 'pointer'}}>
-              <GatsbyImage image={videoBgImage.childImageSharp.gatsbyImageData} alt="Jimmy Vercellino" className='w-100' style={{height: '100%'}} />
+              <GatsbyImage image={videoBgImage.childImageSharp.gatsbyImageData} alt='Jimmy Vercellino' className='w-100' style={{height: '100%'}} />
             </div>
           </div>
 
