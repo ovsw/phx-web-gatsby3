@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React from 'react' // eslint-disable-line
+import React, {useState} from 'react' // eslint-disable-line
 import {jsx} from 'theme-ui'
 import {graphql} from 'gatsby'
 
@@ -28,6 +28,7 @@ import HomeFAQs from '../components/HomeFAQs'
 
 const IndexPage = props => {
   const {data, errors} = props
+  const [isJimmyVideoOpen, setIsJimmyVideoOpen] = useState(false)
 
   if (errors) {
     return (
@@ -57,9 +58,13 @@ const IndexPage = props => {
         description={site.description}
       />
 
-      <Hero />
+      <Hero onOpenJimmyVideo={() => setIsJimmyVideoOpen(true)} />
       <Services />
-      <HomeVideo />
+      <HomeVideo
+        isVideoOpen={isJimmyVideoOpen}
+        onOpenVideo={() => setIsJimmyVideoOpen(true)}
+        onCloseVideo={() => setIsJimmyVideoOpen(false)}
+      />
 
       <Testimonials />
 
