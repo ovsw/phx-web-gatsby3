@@ -7,6 +7,8 @@ import {GatsbyImage} from 'gatsby-plugin-image'
 import ModalVideo from 'react-modal-video'
 import 'react-modal-video/css/modal-video.min.css'
 
+const JIMMY_VIDEO_ID = 'OOfeMMtcOCI'
+
 function HomeVideo () {
   const [videoToggler, setvideoToggler] = useState(false)
 
@@ -64,7 +66,7 @@ function HomeVideo () {
           </div>
 
         </div>
-        <ModalVideo channel='youtube' isOpen={videoToggler} videoId='-NBlEj7C8vM' autoplay="1" onClose={() => setvideoToggler(false)} />
+        <ModalVideo channel='youtube' isOpen={videoToggler} videoId={JIMMY_VIDEO_ID} autoplay="1" onClose={() => setvideoToggler(false)} />
       </Container>
     </section>
   )
