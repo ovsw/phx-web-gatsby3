@@ -8,6 +8,18 @@ import ModalVideo from 'react-modal-video'
 import 'react-modal-video/css/modal-video.min.css'
 
 const JIMMY_VIDEO_ID = 'OOfeMMtcOCI'
+const DEFAULT_SITE_ORIGIN = 'https://phxhomeloan.com'
+
+function getJimmyVideoSrc () {
+  const origin = typeof window !== 'undefined' ? window.location.origin : DEFAULT_SITE_ORIGIN
+  const params = new URLSearchParams({
+    autoplay: '1',
+    rel: '0',
+    origin
+  })
+
+  return `https://www.youtube.com/embed/${JIMMY_VIDEO_ID}?${params.toString()}`
+}
 
 function HomeVideo ({isVideoOpen, onOpenVideo, onCloseVideo}) {
   const {videoBgImage} = useStaticQuery(
@@ -64,7 +76,19 @@ function HomeVideo ({isVideoOpen, onOpenVideo, onCloseVideo}) {
           </div>
 
         </div>
-        <ModalVideo channel='youtube' isOpen={isVideoOpen} videoId={JIMMY_VIDEO_ID} autoplay="1" onClose={onCloseVideo} />
+        <ModalVideo channel='youtube' isOpen={isVideoOpen} videoId={JIMMY_VIDEO_ID} autoplay="1" onClose={onCloseVideo}>
+          <iframe
+            width='460'
+            height='230'
+            src={getJimmyVideoSrc()}
+            title='Meet Jimmy Vercellino'
+            frameBorder='0'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+            allowFullScreen
+            referrerPolicy='strict-origin-when-cross-origin'
+            tabIndex='-1'
+          />
+        </ModalVideo>
       </Container>
     </section>
   )
