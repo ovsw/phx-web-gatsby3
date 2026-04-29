@@ -2,6 +2,7 @@
 import React from 'react' // eslint-disable-line
 import {jsx, Container} from 'theme-ui'
 import {useStaticQuery, graphql} from 'gatsby'
+import {FaPlayCircle} from 'react-icons/fa'
 
 import { getImage } from 'gatsby-plugin-image'
 import { BgImage } from 'gbimage-bridge'
@@ -99,7 +100,12 @@ const HomeHero = ({onOpenJimmyVideo}) => {
             }}>
               Buying a house is an exciting adventure, and we want to help you navigate your mortgage loan options so you get the right type of home loan with the best terms. <br/> <br />I’m Jimmy Vercellino, an experienced mortgage originator with Phoenix lender Luminate Bank. My team and I work hard to provide a timely, efficient and excellent home loan process for you. We serve families nationwide.
             </p>
-            <button type='button' onClick={onOpenJimmyVideo} sx={{variant: 'buttons.simple', mr: 2}}>
+            <button
+              type='button'
+              onClick={onOpenJimmyVideo}
+              sx={{variant: 'buttons.simple', mr: 2, display: 'inline-flex', alignItems: 'center'}}
+            >
+              <FaPlayCircle sx={{mr: 2, fontSize: '1.1em'}} />
               <span>Meet Jimmy</span>
             </button>
             <a href='https://connect.phxhomeloan.com/' target="_blank" rel='noopener noreferrer' sx={{variant: 'buttons.simpleAccent'}}>
