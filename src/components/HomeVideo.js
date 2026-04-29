@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, {useState} from 'react' // eslint-disable-line
+import React from 'react' // eslint-disable-line
 import {jsx, Container} from 'theme-ui'
 import {Link, useStaticQuery, graphql} from 'gatsby'
 import {GatsbyImage} from 'gatsby-plugin-image'
@@ -9,9 +9,7 @@ import 'react-modal-video/css/modal-video.min.css'
 
 const JIMMY_VIDEO_ID = 'OOfeMMtcOCI'
 
-function HomeVideo () {
-  const [videoToggler, setvideoToggler] = useState(false)
-
+function HomeVideo ({isVideoOpen, onOpenVideo, onCloseVideo}) {
   const {videoBgImage} = useStaticQuery(
     graphql`
     
@@ -60,13 +58,13 @@ function HomeVideo () {
           <div sx={{
             width: ['full', null, null, '1/2']
           }}>
-            <div onClick={() => setvideoToggler(true)} sx={{cursor: 'pointer'}}>
+            <div onClick={onOpenVideo} sx={{cursor: 'pointer'}}>
               <GatsbyImage image={videoBgImage.childImageSharp.gatsbyImageData} alt="Jimmy Vercellino" className='w-100' style={{height: '100%'}} />
             </div>
           </div>
 
         </div>
-        <ModalVideo channel='youtube' isOpen={videoToggler} videoId={JIMMY_VIDEO_ID} autoplay="1" onClose={() => setvideoToggler(false)} />
+        <ModalVideo channel='youtube' isOpen={isVideoOpen} videoId={JIMMY_VIDEO_ID} autoplay="1" onClose={onCloseVideo} />
       </Container>
     </section>
   )
