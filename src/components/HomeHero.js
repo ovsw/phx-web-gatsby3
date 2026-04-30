@@ -50,7 +50,7 @@ const HomeHero = ({ onOpenJimmyVideo }) => {
         Tag="section"
         sx={{
           paddingTop: ["11rem"],
-          minHeight: [null, "80vh", "100vh"],
+          minHeight: [null, "80vh", "100vh", "max(100vh, 60rem)"],
           display: "flex",
           position: "relative",
           alignItems: ["flex-start", null, null, "center"],
