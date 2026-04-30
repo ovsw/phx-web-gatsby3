@@ -55,3 +55,17 @@ Minimal operating notes for AI coding agents working in this repo.
 - Never edit `node_modules`
 - Prefer updating `config/website.js` and Sanity-backed content/config instead of duplicating site metadata in components
 - Keep README and agent guidance aligned with actual `package.json` scripts and verified build behavior
+
+## Agent skills
+
+### Issue tracker
+
+Issues are tracked in GitHub Issues for this repo. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The triage workflow uses the default label vocabulary: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, and `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+This repo uses a single-context domain-doc layout. See `docs/agents/domain.md`.
