@@ -11,7 +11,7 @@ module.exports = {
   siteLogo: "/logo.png", // Used for SEO and manifest
   defaultImage: "/images/jimmy-vercellino-image.jpg", // Used for SEO and manifest
   siteDescription:
-    "Jimmy Vercellino is a top producing mortgage loan originator for Luminate Bank in Phoenix, AZ. His mission is to provide and assist all veterans and active duty military with all of their VA Home Loan Financing needs.",
+    "Jimmy Vercellino is a top producing mortgage loan originator for Luminate Bank in Phoenix, AZ. His mission is to provide you with the custom-tailored mortgage solution you deserve.",
   author: "PHX Home Loan", // Author for schema.org JSONLD
 
   // siteFBAppID: '123456789', // Facebook App ID - Optional
