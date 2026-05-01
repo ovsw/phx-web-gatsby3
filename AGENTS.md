@@ -21,7 +21,7 @@ Minimal operating notes for AI coding agents working in this repo.
 - `npm run clean` or `npm run clean-cache`: clear Gatsby cache/output
 - `npm run format`: run Prettier
 
-`build` and `develop` already inject `NODE_OPTIONS=--openssl-legacy-provider`. Preserve that unless the dependency stack is upgraded and reverified.
+`build` and `develop` invoke Gatsby through `scripts/run-gatsby.js`, which applies `--openssl-legacy-provider` only on Node versions that need it. Preserve that unless the dependency stack is upgraded and reverified.
 
 ## Verification Notes
 

@@ -54,9 +54,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "NODE_OPTIONS=--openssl-legacy-provider gatsby build",
+    "build": "node ./scripts/run-gatsby.js build",
     "generate": "npm run build && npm run serve",
-    "develop": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
+    "develop": "node ./scripts/run-gatsby.js develop",
     "clean-cache": "gatsby clean",
     "dev": "npm run clean-cache && npm run develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",

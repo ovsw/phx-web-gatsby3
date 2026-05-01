@@ -194,14 +194,16 @@ const HomeHero = ({ onOpenJimmyVideo }) => {
                 alignSelf: ["stretch", "stretch", "stretch", "auto"],
                 position: ["static", null, null, "absolute"],
                 bottom: [null, null, null, 0],
-                left: [null, null, null, "15rem"],
+                left: [null, null, null, "18rem"],
                 height: [null, null, null, "42rem"],
                 zIndex: 3,
                 overflow: "visible",
                 "@media screen and (min-width: 1280px) and (max-width: 1439px)": {
+                  left: "19rem",
                   height: "46rem",
                 },
                 "@media screen and (min-width: 1440px)": {
+                  left: "20rem",
                   height: "49rem",
                 },
               }}

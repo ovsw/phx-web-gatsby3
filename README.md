@@ -32,7 +32,7 @@ Useful commands:
 - `npm run clean` or `npm run clean-cache`: clear Gatsby caches
 - `npm run format`: run Prettier on `js`, `jsx`, `json`, and `md` files
 
-The build and develop scripts already set `NODE_OPTIONS=--openssl-legacy-provider`. Keep that in place unless the Gatsby/dependency stack is upgraded and verified without it.
+The build and develop scripts invoke Gatsby through `scripts/run-gatsby.js`, which adds `--openssl-legacy-provider` only on Node versions that need it. Keep that behavior in place unless the Gatsby/dependency stack is upgraded and verified without it.
 
 ## Environment
 
