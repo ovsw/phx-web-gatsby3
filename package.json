@@ -49,6 +49,9 @@
     "dotenv": "^10.0.0",
     "prettier": "^2.3.2"
   },
+  "overrides": {
+    "axios": "0.31.1"
+  },
   "keywords": [
     "gatsby"
   ],
