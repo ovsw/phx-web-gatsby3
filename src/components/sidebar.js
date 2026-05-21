@@ -41,7 +41,7 @@ const Sidebar = () => {
               variant: "buttons.simpleAccent",
             }}
           >
-            Get Started
+            Apply Online
           </a>
         </div>
 
