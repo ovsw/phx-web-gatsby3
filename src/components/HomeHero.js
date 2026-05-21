@@ -6,6 +6,7 @@ import { FaPlayCircle } from "react-icons/fa";
 
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
+import config from "../../config/website";
 
 const HomeHero = ({ onOpenJimmyVideo }) => {
   const { mobile, desktop, portrait } = useStaticQuery(graphql`
@@ -169,12 +170,12 @@ const HomeHero = ({ onOpenJimmyVideo }) => {
                 <span>Meet Jimmy</span>
               </button>
               <a
-                href="https://connect.phxhomeloan.com/"
+                href={config.bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ variant: "buttons.simpleAccent", display: "inline-block" }}
               >
-                <span>Get Started</span>
+                <span>Schedule a Consultation</span>
               </a>
             </div>
 

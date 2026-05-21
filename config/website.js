@@ -7,6 +7,8 @@ module.exports = {
   siteHeadline:
     "Jimmy Vercellino is a VA Loans Specialist and top mortgage loan originator for Luminate Bank in Phoenix, AZ.", // Headline for schema.org JSONLD
   siteUrl: "https://phxhomeloan.com", // Domain of your site. No trailing slash!
+  bookingUrl:
+    "https://bookings.cloud.microsoft/book/PreliminaryMortgageConsultwithJimmyV1@goluminate.com/?ismsaljsauthenabled=true",
   siteLanguage: "en", // Language Tag on <html> element
   siteLogo: "/logo.png", // Used for SEO and manifest
   defaultImage: "/images/jimmy-vercellino-image.jpg", // Used for SEO and manifest

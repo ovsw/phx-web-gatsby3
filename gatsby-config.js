@@ -23,8 +23,8 @@ module.exports = {
       //   children: []
       // },
       {
-        title: "Get Started",
-        slug: "/apply/",
+        title: "Schedule Consult",
+        slug: config.bookingUrl,
         children: [],
       },
       {
