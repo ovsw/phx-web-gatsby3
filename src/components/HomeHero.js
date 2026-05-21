@@ -199,6 +199,7 @@ const HomeHero = ({ onOpenJimmyVideo }) => {
                 height: [null, null, null, "42rem"],
                 zIndex: 3,
                 overflow: "visible",
+                pointerEvents: "none",
                 "@media screen and (min-width: 1280px) and (max-width: 1439px)": {
                   left: "19rem",
                   height: "46rem",
