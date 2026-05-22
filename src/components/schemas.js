@@ -93,6 +93,29 @@ export const jimmyVercellinoPersonSchema = {
   ],
 };
 
+export const mediaYouTubeVideoObjectSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": "https://phxhomeloan.com/media/#youtube-video-content",
+  name: "PHX Home Loan YouTube Videos",
+  description:
+    "YouTube video content from Jimmy Vercellino and PHX Home Loan covering mortgage loan options, VA loans, and home buying guidance.",
+  url: "https://phxhomeloan.com/media/",
+  contentUrl: "https://www.youtube.com/channel/UCmSqQXiy5BIxh-hZYp_RDWw",
+  thumbnailUrl: [
+    "https://phxhomeloan.com/images/jimmy-vercellino-phx-home-loans-banner.jpg",
+  ],
+  author: {
+    "@id": "https://phxhomeloan.com/phoenix-loan-originator/#person",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "PHX Home Loan",
+    url: "https://phxhomeloan.com/",
+    sameAs: "https://www.youtube.com/channel/UCmSqQXiy5BIxh-hZYp_RDWw",
+  },
+};
+
 export const professionalServiceSchema = {
   "@context": "http://www.schema.org",
   "@type": "professionalService",
