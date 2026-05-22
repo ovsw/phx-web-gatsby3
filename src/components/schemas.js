@@ -52,8 +52,12 @@ export const jimmyVercellinoPersonSchema = {
   "@type": "Person",
   "@id": "https://phxhomeloan.com/phoenix-loan-originator/#person",
   name: "Jimmy Vercellino",
+  alternateName: "James Frank Vercellino III",
   url: "https://phxhomeloan.com/phoenix-loan-originator/",
-  image: "https://phxhomeloan.com/images/jimmy-vercellino-phx-home-loans-banner.jpg",
+  image:
+    "https://phxhomeloan.com/static/5e90cce1fd23213f4f3cc4a7a812609f/91a40/jimmy-v-portrait-no-bg.png",
+  telephone: "+1-602-908-5849",
+  email: "jimmy.vercellino@goluminate.com",
   jobTitle: "Mortgage Loan Originator",
   description:
     "Jimmy Vercellino is an NMLS licensed mortgage loan originator, NMLS #184169, USMC veteran, and VA loan specialist in Phoenix, Arizona.",
@@ -64,10 +68,22 @@ export const jimmyVercellinoPersonSchema = {
   },
   worksFor: {
     "@type": "Organization",
-    name: "PHX Home Loan",
-    url: "https://phxhomeloan.com/",
+    name: "Luminate Bank",
+    identifier: {
+      "@type": "PropertyValue",
+      propertyID: "NMLS",
+      value: "1281608",
+    },
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Phoenix",
+    addressRegion: "AZ",
+    postalCode: "85018",
+    addressCountry: "US",
   },
   sameAs: [
+    "https://www.nmlsconsumeraccess.org/Home.aspx/SubSearch?searchText=184169",
     "https://www.youtube.com/channel/UCmSqQXiy5BIxh-hZYp_RDWw",
     "https://twitter.com/phxhomeloan",
     "https://www.linkedin.com/in/jimmy-vercellino-29060930/",
