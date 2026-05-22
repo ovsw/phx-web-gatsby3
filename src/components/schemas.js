@@ -47,6 +47,36 @@ export const localBusinessSchema = {
   ],
 };
 
+export const jimmyVercellinoPersonSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://phxhomeloan.com/phoenix-loan-originator/#person",
+  name: "Jimmy Vercellino",
+  url: "https://phxhomeloan.com/phoenix-loan-originator/",
+  image: "https://phxhomeloan.com/images/jimmy-vercellino-phx-home-loans-banner.jpg",
+  jobTitle: "Mortgage Loan Originator",
+  description:
+    "Jimmy Vercellino is an NMLS licensed mortgage loan originator, NMLS #184169, USMC veteran, and VA loan specialist in Phoenix, Arizona.",
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "NMLS",
+    value: "184169",
+  },
+  worksFor: {
+    "@type": "Organization",
+    name: "PHX Home Loan",
+    url: "https://phxhomeloan.com/",
+  },
+  sameAs: [
+    "https://www.youtube.com/channel/UCmSqQXiy5BIxh-hZYp_RDWw",
+    "https://twitter.com/phxhomeloan",
+    "https://www.linkedin.com/in/jimmy-vercellino-29060930/",
+    "http://www.facebook.com/TheVercellinoTeam",
+    "https://www.instagram.com/jimmyvercellino_/",
+    "https://www.google.com/maps/uv?hl=en&pb=!1s0x872b74ce3a1f36a7%3A0x64772747e819f813!3m1!7e115!4shttps%3A%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipMm2fmD7HPPGlxUhUJt7W2TUyB3UgIoESnBJlaE%3Dw160-h160-k-no!5sphxhomeloan%20-%20Google%20Search!15sCAQ&imagekey=!1e10!2sAF1QipMw5F1B_cDEiMlXBd0OFYdGSq2ov7QQYB95Zmfv&sa=X&ved=2ahUKEwiunsWyl9joAhWmtYsKHTZcCqoQoiowE3oECB4QBg",
+  ],
+};
+
 export const professionalServiceSchema = {
   "@context": "http://www.schema.org",
   "@type": "professionalService",
