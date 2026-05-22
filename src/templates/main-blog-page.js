@@ -30,6 +30,14 @@ const BlogPage = (props) => {
         .filter(filterOutDocsWithoutSlugs)
         .filter(filterOutDocsPublishedInTheFuture)
     : [];
+  const canonicalSlug = currentPage === 1 ? "blog" : `blog/${currentPage}`;
+  const baseDescription =
+    "Check out our recent blog posts on Home Loans, Mortgage, and Finance. Stay up-to-date with the latest news and tips from the mortgage industry.";
+  const seoDescription =
+    currentPage === 1
+      ? baseDescription
+      : `${baseDescription} Page ${currentPage} of ${numPages}.`;
+
   return (
     <Layout>
       {errors && <SEO seoTitle="GraphQL Error" />}
@@ -41,9 +49,9 @@ const BlogPage = (props) => {
       )}
       <SEO 
         seoTitle={"Blog | Home Loan Specialists | Phoenix Mortgage Lender"} 
-        description="Check out our recent blog posts on Home Loans, Mortgage, and Finance. Stay up-to-date with the latest news and tips from the mortgage industry." 
+        description={seoDescription} 
 
-        slug="blog"
+        slug={canonicalSlug}
         
         />
       {posts && (

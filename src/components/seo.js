@@ -21,7 +21,7 @@ import {useSiteMetadata} from '../hooks/use-site-metadata'
 import {useSiteSettings} from '../hooks/use-site-settings'
 
 
-function SEO({ seoTitle, description, lang = 'en', slug = '', image, noIndex = false }) {
+function SEO({ seoTitle, description, lang = 'en', slug = '', image, noIndex = false, schemas = [] }) {
   // grab default values from gatsby config
   const siteMetadata = useSiteMetadata()
   const {defaultImage, siteUrl} = siteMetadata
@@ -59,6 +59,11 @@ function SEO({ seoTitle, description, lang = 'en', slug = '', image, noIndex = f
         <link rel="canonical" href={`${siteUrl}/${slug}${slug ? "/" : ""}`} />
 
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
+        {schemas.map(schema => (
+          <script key={schema['@id'] || schema.name} type="application/ld+json">
+            {JSON.stringify(schema)}
+          </script>
+        ))}
       </Helmet>
     </>
   );
@@ -77,6 +82,7 @@ SEO.propTypes = {
   title: PropTypes.string,
   image: PropTypes.object,
   slug: PropTypes.string,
+  schemas: PropTypes.arrayOf(PropTypes.object),
 }
 
 export default SEO

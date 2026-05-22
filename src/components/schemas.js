@@ -47,6 +47,213 @@ export const localBusinessSchema = {
   ],
 };
 
+export const jimmyVercellinoPersonSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://phxhomeloan.com/phoenix-loan-originator/#person",
+  name: "Jimmy Vercellino",
+  alternateName: "James Frank Vercellino III",
+  url: "https://phxhomeloan.com/phoenix-loan-originator/",
+  image:
+    "https://phxhomeloan.com/static/5e90cce1fd23213f4f3cc4a7a812609f/91a40/jimmy-v-portrait-no-bg.png",
+  telephone: "+1-602-908-5849",
+  email: "jimmy.vercellino@goluminate.com",
+  jobTitle: "Mortgage Loan Originator",
+  description:
+    "Jimmy Vercellino is an NMLS licensed mortgage loan originator, NMLS #184169, USMC veteran, and VA loan specialist in Phoenix, Arizona.",
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "NMLS",
+    value: "184169",
+  },
+  worksFor: {
+    "@type": "Organization",
+    name: "Luminate Bank",
+    identifier: {
+      "@type": "PropertyValue",
+      propertyID: "NMLS",
+      value: "1281608",
+    },
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Phoenix",
+    addressRegion: "AZ",
+    postalCode: "85018",
+    addressCountry: "US",
+  },
+  sameAs: [
+    "https://www.nmlsconsumeraccess.org/Home.aspx/SubSearch?searchText=184169",
+    "https://www.youtube.com/channel/UCmSqQXiy5BIxh-hZYp_RDWw",
+    "https://twitter.com/phxhomeloan",
+    "https://www.linkedin.com/in/jimmy-vercellino-29060930/",
+    "http://www.facebook.com/TheVercellinoTeam",
+    "https://www.instagram.com/jimmyvercellino_/",
+    "https://www.google.com/maps/uv?hl=en&pb=!1s0x872b74ce3a1f36a7%3A0x64772747e819f813!3m1!7e115!4shttps%3A%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipMm2fmD7HPPGlxUhUJt7W2TUyB3UgIoESnBJlaE%3Dw160-h160-k-no!5sphxhomeloan%20-%20Google%20Search!15sCAQ&imagekey=!1e10!2sAF1QipMw5F1B_cDEiMlXBd0OFYdGSq2ov7QQYB95Zmfv&sa=X&ved=2ahUKEwiunsWyl9joAhWmtYsKHTZcCqoQoiowE3oECB4QBg",
+  ],
+};
+
+export const mediaYouTubeVideoObjectSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": "https://phxhomeloan.com/media/#youtube-video-content",
+  name: "PHX Home Loan YouTube Videos",
+  description:
+    "YouTube video content from Jimmy Vercellino and PHX Home Loan covering mortgage loan options, VA loans, and home buying guidance.",
+  url: "https://phxhomeloan.com/media/",
+  contentUrl: "https://www.youtube.com/channel/UCmSqQXiy5BIxh-hZYp_RDWw",
+  thumbnailUrl: [
+    "https://phxhomeloan.com/images/jimmy-vercellino-phx-home-loans-banner.jpg",
+  ],
+  author: {
+    "@id": "https://phxhomeloan.com/phoenix-loan-originator/#person",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "PHX Home Loan",
+    url: "https://phxhomeloan.com/",
+    sameAs: "https://www.youtube.com/channel/UCmSqQXiy5BIxh-hZYp_RDWw",
+  },
+};
+
+const siteUrl = "https://phxhomeloan.com";
+
+const loanPageTypesBySlug = {
+  "phoenix-va-loan": "VA loan",
+  "phoenix-fha-loan": "FHA loan",
+  "phoenix-conventional-loan": "Conventional mortgage loan",
+  "phoenix-jumbo-loan": "Jumbo loan",
+  "phoenix-construction-to-permanent-loan": "Construction-to-permanent loan",
+};
+
+const faqHeadingStyles = ["h2", "h3"];
+const faqHeadingPattern = /^(what|how|why|when|where|who|can|should|will|do|does|are|is)\b/i;
+
+const normalizeText = (text = "") => text.replace(/\s+/g, " ").trim();
+
+const blockToPlainText = (block = {}) =>
+  normalizeText((block.children || []).map((child) => child.text || "").join(""));
+
+const isFaqHeading = (block = {}) => {
+  const text = blockToPlainText(block);
+
+  return faqHeadingStyles.includes(block.style) && text && (text.endsWith("?") || faqHeadingPattern.test(text));
+};
+
+const findAnswerText = (blocks, questionIndex) => {
+  for (let index = questionIndex + 1; index < blocks.length; index += 1) {
+    const block = blocks[index];
+
+    if (isFaqHeading(block)) {
+      return "";
+    }
+
+    const text = blockToPlainText(block);
+
+    if (text) {
+      return text;
+    }
+  }
+
+  return "";
+};
+
+const getPageSlug = (page = {}) => page.slug && page.slug.current;
+
+const getPageUrl = (slug) => `${siteUrl}/${slug}/`;
+
+const getPageDescription = (page = {}) => {
+  if (page.seoDescription) {
+    return normalizeText(page.seoDescription);
+  }
+
+  const body = page._rawBody || [];
+  const firstBodyText = body.map(blockToPlainText).find(Boolean);
+
+  return firstBodyText || page.title || "";
+};
+
+export const buildLoanPageFAQSchema = (page = {}) => {
+  const slug = getPageSlug(page);
+
+  if (!loanPageTypesBySlug[slug]) {
+    return null;
+  }
+
+  const body = page._rawBody || [];
+  const mainEntity = body
+    .map((block, index) => {
+      if (!isFaqHeading(block)) {
+        return null;
+      }
+
+      const answerText = findAnswerText(body, index);
+
+      if (!answerText) {
+        return null;
+      }
+
+      return {
+        "@type": "Question",
+        name: blockToPlainText(block),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answerText,
+        },
+      };
+    })
+    .filter(Boolean);
+
+  if (!mainEntity.length) {
+    return null;
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${getPageUrl(slug)}#faqpage`,
+    url: getPageUrl(slug),
+    mainEntity,
+  };
+};
+
+export const buildLoanOrCreditSchema = (page = {}) => {
+  const slug = getPageSlug(page);
+  const loanType = loanPageTypesBySlug[slug];
+
+  if (!loanType) {
+    return null;
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "LoanOrCredit",
+    "@id": `${getPageUrl(slug)}#loan-or-credit`,
+    name: page.seoTitle || page.title || loanType,
+    url: getPageUrl(slug),
+    description: getPageDescription(page),
+    loanType,
+    provider: {
+      "@id": localBusinessSchema["@id"],
+      name: localBusinessSchema.name,
+      url: localBusinessSchema.url,
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Phoenix",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Phoenix",
+        addressRegion: "AZ",
+        addressCountry: "US",
+      },
+    },
+  };
+};
+
+export const buildLoanPageSchemas = (page = {}) =>
+  [buildLoanPageFAQSchema(page), buildLoanOrCreditSchema(page)].filter(Boolean);
+
 export const professionalServiceSchema = {
   "@context": "http://www.schema.org",
   "@type": "professionalService",

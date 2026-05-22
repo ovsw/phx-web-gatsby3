@@ -76,3 +76,6 @@ yarn.lock
 # node complile cache
 node-compile-cache/*
 v8-compile-cache-*/
+
+.codex/
+.codex-artifacts/
