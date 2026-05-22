@@ -6,6 +6,7 @@ import {GatsbyImage} from 'gatsby-plugin-image'
 
 import ModalVideo from 'react-modal-video'
 import 'react-modal-video/css/modal-video.min.css'
+import config from '../../config/website'
 
 const JIMMY_VIDEO_ID = 'OOfeMMtcOCI'
 const DEFAULT_SITE_ORIGIN = 'https://phxhomeloan.com'
@@ -60,8 +61,8 @@ function HomeVideo ({isVideoOpen, onOpenVideo, onCloseVideo}) {
             <Link to='/contact/' sx={{variant: 'buttons.simple', mr: 2}}>
               <span>Contact</span>
             </Link>
-            <a href='https://connect.phxhomeloan.com/' target="_blank" rel='noopener noreferrer' sx={{variant: 'buttons.simpleAccent'}}>
-              <span>Get Started</span>
+            <a href={config.bookingUrl} target="_blank" rel='noopener noreferrer' sx={{variant: 'buttons.simpleAccent'}}>
+              <span>Schedule a Consultation</span>
             </a>
             </div>
 

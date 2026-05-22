@@ -3,14 +3,27 @@ import React, { useState } from "react"; // eslint-disable-line
 import { jsx } from "theme-ui";
 import { Link } from "gatsby";
 
+const isExternalUrl = (url) => /^https?:\/\//.test(url);
+
+const NavLink = ({ slug, children, onClick }) =>
+  isExternalUrl(slug) ? (
+    <a href={slug} target="_blank" rel="noopener noreferrer" onClick={onClick}>
+      {children}
+    </a>
+  ) : (
+    <Link to={slug} onClick={onClick}>
+      {children}
+    </Link>
+  );
+
 const NavItemWithSubMenu = ({ title, slug, children, index, closeMobileNav }) => {
   const [isSubMenuVisible, setIsSubMenuVisible] = useState(false);
 
   const mainItem =
     slug !== "#" ? (
-      <Link to={slug} onClick={closeMobileNav}>
+      <NavLink slug={slug} onClick={closeMobileNav}>
         {title}
-      </Link>
+      </NavLink>
     ) : (
       <a sx={{ cursor: "pointer" }}>{title}</a>
     );
@@ -23,9 +36,9 @@ const NavItemWithSubMenu = ({ title, slug, children, index, closeMobileNav }) =>
       <ul className="subMenuWrapperUl">
         {children.map(({ title, slug }) => (
           <li key={slug}>
-            <Link to={slug} onClick={closeMobileNav}>
+            <NavLink slug={slug} onClick={closeMobileNav}>
               {title}
-            </Link>
+            </NavLink>
           </li>
         ))}
       </ul>

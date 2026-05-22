@@ -11,6 +11,8 @@ import MainLogo from "./MainLogo";
 import MobileMenuToggle from "./MobileMenuToggle";
 import MenuItemWSubMenu from "./NavItemWithSubMenu";
 
+const isExternalUrl = (url) => /^https?:\/\//.test(url);
+
 const NavBar = () => {
   const { siteNav } = useSiteMetadata();
   const { isMobileNavOpen, openMobileNav, closeMobileNav } = useContext(appContext);
@@ -23,9 +25,20 @@ const NavBar = () => {
           {siteNav.map((navItem, i) => (
             <li key={navItem.title}>
               {navItem.children.length === 0 && (
-                <Link to={navItem.slug} onClick={closeMobileNav}>
-                  {navItem.title}
-                </Link>
+                isExternalUrl(navItem.slug) ? (
+                  <a
+                    href={navItem.slug}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={closeMobileNav}
+                  >
+                    {navItem.title}
+                  </a>
+                ) : (
+                  <Link to={navItem.slug} onClick={closeMobileNav}>
+                    {navItem.title}
+                  </Link>
+                )
               )}
               {navItem.children.length > 0 && (
                 <MenuItemWSubMenu {...navItem} index={i} closeMobileNav={closeMobileNav} />
