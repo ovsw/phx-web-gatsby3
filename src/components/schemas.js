@@ -116,6 +116,144 @@ export const mediaYouTubeVideoObjectSchema = {
   },
 };
 
+const siteUrl = "https://phxhomeloan.com";
+
+const loanPageTypesBySlug = {
+  "phoenix-va-loan": "VA loan",
+  "phoenix-fha-loan": "FHA loan",
+  "phoenix-conventional-loan": "Conventional mortgage loan",
+  "phoenix-jumbo-loan": "Jumbo loan",
+  "phoenix-construction-to-permanent-loan": "Construction-to-permanent loan",
+};
+
+const faqHeadingStyles = ["h2", "h3"];
+const faqHeadingPattern = /^(what|how|why|when|where|who|can|should|will|do|does|are|is)\b/i;
+
+const normalizeText = (text = "") => text.replace(/\s+/g, " ").trim();
+
+const blockToPlainText = (block = {}) =>
+  normalizeText((block.children || []).map((child) => child.text || "").join(""));
+
+const isFaqHeading = (block = {}) => {
+  const text = blockToPlainText(block);
+
+  return faqHeadingStyles.includes(block.style) && text && (text.endsWith("?") || faqHeadingPattern.test(text));
+};
+
+const findAnswerText = (blocks, questionIndex) => {
+  for (let index = questionIndex + 1; index < blocks.length; index += 1) {
+    const block = blocks[index];
+
+    if (isFaqHeading(block)) {
+      return "";
+    }
+
+    const text = blockToPlainText(block);
+
+    if (text) {
+      return text;
+    }
+  }
+
+  return "";
+};
+
+const getPageSlug = (page = {}) => page.slug && page.slug.current;
+
+const getPageUrl = (slug) => `${siteUrl}/${slug}/`;
+
+const getPageDescription = (page = {}) => {
+  if (page.seoDescription) {
+    return normalizeText(page.seoDescription);
+  }
+
+  const body = page._rawBody || [];
+  const firstBodyText = body.map(blockToPlainText).find(Boolean);
+
+  return firstBodyText || page.title || "";
+};
+
+export const buildLoanPageFAQSchema = (page = {}) => {
+  const slug = getPageSlug(page);
+
+  if (!loanPageTypesBySlug[slug]) {
+    return null;
+  }
+
+  const body = page._rawBody || [];
+  const mainEntity = body
+    .map((block, index) => {
+      if (!isFaqHeading(block)) {
+        return null;
+      }
+
+      const answerText = findAnswerText(body, index);
+
+      if (!answerText) {
+        return null;
+      }
+
+      return {
+        "@type": "Question",
+        name: blockToPlainText(block),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answerText,
+        },
+      };
+    })
+    .filter(Boolean);
+
+  if (!mainEntity.length) {
+    return null;
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${getPageUrl(slug)}#faqpage`,
+    url: getPageUrl(slug),
+    mainEntity,
+  };
+};
+
+export const buildLoanOrCreditSchema = (page = {}) => {
+  const slug = getPageSlug(page);
+  const loanType = loanPageTypesBySlug[slug];
+
+  if (!loanType) {
+    return null;
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "LoanOrCredit",
+    "@id": `${getPageUrl(slug)}#loan-or-credit`,
+    name: page.seoTitle || page.title || loanType,
+    url: getPageUrl(slug),
+    description: getPageDescription(page),
+    loanType,
+    provider: {
+      "@id": localBusinessSchema["@id"],
+      name: localBusinessSchema.name,
+      url: localBusinessSchema.url,
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Phoenix",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Phoenix",
+        addressRegion: "AZ",
+        addressCountry: "US",
+      },
+    },
+  };
+};
+
+export const buildLoanPageSchemas = (page = {}) =>
+  [buildLoanPageFAQSchema(page), buildLoanOrCreditSchema(page)].filter(Boolean);
+
 export const professionalServiceSchema = {
   "@context": "http://www.schema.org",
   "@type": "professionalService",

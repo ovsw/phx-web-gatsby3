@@ -7,7 +7,7 @@ import Layout from '../containers/layout'
 import TwoColumnsRightSidebar from '../components/two-columns-right-sidebar'
 import Sidebar from '../components/sidebar'
 import InnerPageHeader from '../components/inner-page-header'
-import {jimmyVercellinoPersonSchema, mediaYouTubeVideoObjectSchema} from '../components/schemas'
+import {buildLoanPageSchemas, jimmyVercellinoPersonSchema, mediaYouTubeVideoObjectSchema} from '../components/schemas'
 
 // import {toPlainText} from '../lib/helpers'
 
@@ -18,6 +18,7 @@ const GenericPageTemplate = props => {
     ? [
         ...(page.slug.current === 'phoenix-loan-originator' ? [jimmyVercellinoPersonSchema] : []),
         ...(page.slug.current === 'media' ? [mediaYouTubeVideoObjectSchema] : []),
+        ...buildLoanPageSchemas(page),
       ]
     : []
 
