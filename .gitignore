@@ -55,6 +55,9 @@ typings/
 .cache/
 public
 
+# Local backups
+.backups/
+
 # Mac files
 .DS_Store
 
